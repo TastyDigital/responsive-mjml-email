@@ -8,15 +8,22 @@ const htmlOutput = mjml2html(`
     <mj-head>
       <mj-title>Kaizen Ticketing email template</mj-title>
       <mj-preview>Activate your new account</mj-preview>
-      <mj-font name="Pompiere" href="https://fonts.googleapis.com/css2?family=Pompiere" />
-      <mj-breakpoint width="660px" />
+      <mj-font name="Mohave" href="https://fonts.googleapis.com/css2?family=Mohave:ital,wght@0,300..700;1,300..700" />
+      <mj-breakpoint width="460px" />
       <mj-attributes>
-        <mj-text padding="16px 0 0" />
-        <mj-button padding="16px 0 0" />
-        <mj-section padding="24px 10%" />
-        <mj-all font-family="Pompiere" />
+        <mj-text color="var(--brand-dark)" />
+        <mj-button background-color="var(--brand-accent)" border-radius="16px" font-size="20px" font-weight="500" />
+        <mj-section padding="16px 10%" />
+        <mj-social-element padding="4px 8px" background-color="var(--brand-dark)" />
+        <mj-all font-family="Mohave" />
       </mj-attributes>
       <mj-style>
+        .body-wrap {
+          --brand-primary: #113D72;
+          --brand-accent: #B90A25;
+          --brand-dark: #091A2E;
+          --brand-light: #E7E7E7;
+        }
         @media only screen and (min-width:660px) {
           .body-wrap {
             padding: 24px 0;
@@ -24,12 +31,16 @@ const htmlOutput = mjml2html(`
         }
       </mj-style>
     </mj-head>
-    <mj-body width="660px" background-color="#e7e7e7" css-class="body-wrap">
-      <mj-wrapper border="4px solid #113D72" padding="42px 32px 16" background-color="#ffffff">
-        <mj-section>
+    <mj-body width="660px" background-color="var(--brand-light)" css-class="body-wrap">
+      <mj-wrapper border="4px solid var(--brand-primary)" padding="42px 32px 16" background-color="#ffffff">
+        <mj-section padding-top="42px">
           <mj-column>
-            <mj-image width="200px"
-                      src="https://designspell.files.wordpress.com/2012/01/sciolino-paris-bw.jpg" />
+            <mj-image padding="0"
+                      width="94px"
+                      src="images/exeter-club-crest.png"
+                      srcset="images/exeter-club-crest.png 94w, images/exeter-club-crest@2x.png 188w"
+                      alt="Exeter City FC"
+            />
           </mj-column>
         </mj-section>
 
@@ -37,54 +48,102 @@ const htmlOutput = mjml2html(`
           <mj-column>
             <mj-text  align="center"
                       font-size="32px"
-                      color="#091A2E"
-                      font-family="Pompiere">
+                      font-weight="700"
+            >
               Hi Demo Customer
               </mj-text>
 
-            <mj-text  align="center"
-                      font-size="16px"
-                      color="#091A2E"
-                      font-weight="bold"
-                      font-family="Pompiere">
+            <mj-text align="center"
+                     font-size="16px"
+                     font-weight="600"
+            >
               Please activate your online account.
               </mj-text>
-            <mj-text  align="center"
-                                  font-size="16px"
-                                  color="#091A2E"
-                                  font-family="Pompiere">
+            <mj-text align="center"
+                     font-size="16px"
+            >
               An online account has been created for you. Please confirm we have your correct email address by clicking the activate button below.
             </mj-text>
-            <mj-button background-color="#AA090E" href="#" border-radius="16px" font-size="20px" width="100%">Activate Your Account</mj-button>
+            <mj-button width="100%" padding-top="44px" href="#">
+              <img alt="" src="images/icons/User.png" width="21" height="21" srcset="images/icons/User.png 21w, images/icons/User@2x.png 42w" style="display:inline-block;margin-right:4px;vertical-align:middle;" /> Activate Your Account</mj-button>
           </mj-column>
         </mj-section>
 
         <!-- Icons -->
         <mj-section>
           <mj-column>
-            <mj-social icon-size="40px" mode="horizontal" >
+            <mj-social icon-size="40px" mode="horizontal" border-radius="0" container-background-color="#FFFFFF" >
               <!-- we can customise the icons with src attribute -->
-              <mj-social-element name="facebook-noshare" href="https://facebook.com/" padding="4px 8px" />
-              <mj-social-element name="x-noshare" href="https://x.com/" padding="4px 8px" />
-              <mj-social-element name="instagram" href="https://instagram.com/" padding="4px 8px" />
-              <mj-social-element name="youtube" href="https://youtube.com/" padding="4px 8px" />
+              <mj-social-element
+                      name="facebook-noshare"
+                      href="https://facebook.com/"
+                      src="images/Facebook.png"
+                      srcset="images/Facebook.png 40w, images/Facebook@2x.png 80w"
+                      alt="Facebook"
+              />
+              <mj-social-element
+                      name="x-noshare"
+                      href="https://x.com/"
+                      src="images/TwitterX.png"
+                      srcset="images/TwitterX.png 40w, images/TwitterX@2x.png 80w"
+                      alt="Twitter X"
+              />
+              <mj-social-element
+                      name="instagram"
+                      href="https://instagram.com/"
+                      src="images/Instagram.png"
+                      srcset="images/Instagram.png 40w, images/Instagram@2x.png 80w"
+                      alt="Instagram"
+              />
+              <mj-social-element
+                      name="youtube"
+                      href="https://youtube.com/"
+                      src="images/YouTube.png"
+                      srcset="images/YouTube.png 40w, images/YouTube@2x.png 80w"
+                      alt="YouTube"
+              />
             </mj-social>
           </mj-column>
         </mj-section>
 
-          <mj-section>
-              <mj-column>
-              <mj-text align="center" font-size="18px">
-                <ul style="list-style:none;padding:0"><li><a href="#" style="color: #113D72; text-decoration: none;">+44(0)123 123 1234</a></li>
-                  <li><a href="#" style="color: #113D72; text-decoration: none;">test@demo.com</a></li>
-                </ul>
-              </mj-text>
-              </mj-column>
-          </mj-section>
         <mj-section>
           <mj-column>
-            <mj-text align="center" font-size="16px">
-              <a href="#" style="color: #113D72; text-decoration: none;">Terms &amp; Conditions</a> <span style="padding: 0 8px">|</span> <a href="#" style="color: #113D72; text-decoration: none;">Privacy Policy</a>
+            <mj-text align="center" font-size="18px" font-weight="medium">
+              <ul style="list-style:none;padding:0">
+                <li style="margin:8px 0;"><a href="#" style="color:var(--brand-dark); text-decoration: none;"><img alt="" src="images/icons/phone.png" width="21" height="21" srcset="images/icons/phone.png 21w, images/icons/phone@2x.png 42w" style="display:inline-block;margin-right:4px;vertical-align:middle;" />  +44(0)123 123 1234</a></li>
+                <li style="margin:8px 0;"><a href="#" style="color:var(--brand-dark); text-decoration: none;"><img alt="" src="images/icons/mail.png" width="21" height="21" srcset="images/icons/mail.png 21w, images/icons/mail@2x.png 42w" style="display:inline-block;margin-right:4px;vertical-align:middle;" />  test@demo.com</a></li>
+               </ul>
+            </mj-text>
+          </mj-column>
+        </mj-section>
+
+        <mj-section>
+          <mj-column vertical-align="middle">
+            <mj-image padding="0" width="112px"
+                      src="images/Maskgroup.png"
+                      srcset="images/Maskgroup.png 112w, images/Maskgroup@2x.png 224w"
+                      alt="HEL"
+            />
+          </mj-column>
+          <mj-column vertical-align="middle">
+            <mj-image padding="0" width="99px"
+                      src="images/image8.png"
+                      srcset="images/image8.png 99w, images/image8@2x.png 198w"
+                      alt="HEL"
+            />
+          </mj-column>
+          <mj-column vertical-align="middle">
+            <mj-image padding="0" width="131px"
+                      src="images/Group125.png"
+                      srcset="images/Group125.png 131w, images/Group125@2x.png 262w"
+                      alt="HEL"
+            />
+          </mj-column>
+        </mj-section>
+        <mj-section>
+          <mj-column>
+            <mj-text align="center" font-size="16px" font-weight="medium">
+              <a href="#" style="color:var(--brand-dark); text-decoration: none;">Terms &amp; Conditions</a> <span style="padding: 0 8px">|</span> <a href="#" style="color:var(--brand-dark); text-decoration: none;">Privacy Policy</a>
             </mj-text>
           </mj-column>
         </mj-section>
