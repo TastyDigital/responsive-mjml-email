@@ -56,14 +56,15 @@
                                   font-size="32px"
                                   font-weight="@HeadingWeight"
                         >
-                            Hi Demo Customer
+                            %=notification_greeting=%
+                            @Model.Recipient.Name,
                         </mj-text>
 
                         <mj-text align="center"
                                  font-size="16px"
                                  font-weight="@buttonWeight"
                         >
-                            Please activate your online account.
+                            %=notification_activateaccount_openingparagraph=%
                         </mj-text>
                         <mj-text align="center"
                                  font-size="16px"
@@ -71,11 +72,11 @@
                         >
 
                             @await AssetImgAsync("activate_thing", 100, 100)<br />
-                            An online account has been created for you. Please confirm we have your correct email address by clicking the activate button below.
+                            %=notification_activateaccount_maincontent2(block)=%
 
                         </mj-text>
-                        <mj-button width="100%" padding-top="44px" href="#" css-class="box-shadow">
-                            <img alt="" src="images/icons/User.png" width="21" height="21" srcset="images/icons/User.png 21w, images/icons/User@2x.png 42w" style="display:inline-block;margin-right:4px;vertical-align:middle;" /> <span style="display: inline-block;vertical-align: middle">Activate Your Account</span></mj-button>
+                        <mj-button width="100%" padding-top="44px" href="@Model.ActivationUrl" css-class="box-shadow">
+                            <img alt="" src="images/icons/User.png" width="21" height="21" srcset="images/icons/User.png 21w, images/icons/User@2x.png 42w" style="display:inline-block;margin-right:4px;vertical-align:middle;" /> <span style="display: inline-block;vertical-align: middle">%=notification_activateaccount_button=%</span></mj-button>
                     </mj-column>
                 </mj-section>
 
