@@ -6,13 +6,13 @@ import mjml2html from 'mjml'
 const htmlOutput = mjml2html(`
   <mjml>
     <mj-head>
-      <mj-title>Kaizen Ticketing email template</mj-title>
+      <mj-title>Kaizen Ticketing Activate Account</mj-title>
       <mj-preview>Activate your new account</mj-preview>
-      <mj-font name="Mohave" href="https://fonts.googleapis.com/css2?family=Mohave:ital,wght@0,300..700;1,300..700" />
+      <mj-font name="Mohave" href="https://fonts.googleapis.com/css2?family=Mohave:ital,wght@0,400;0,500;0,700;1,400&amp;display=swap" />
       <mj-breakpoint width="460px" />
       <mj-attributes>
         <mj-text color="var(--brand-dark)" />
-        <mj-button background-color="var(--brand-accent)" border-radius="16px" font-size="20px" font-weight="500" />
+        <mj-button background-color="var(--brand-accent)" border-radius="16px" font-size="20px" font-weight="500" width="100%" />
         <mj-section padding="16px 10%" />
         <mj-social-element padding="4px 8px" background-color="var(--brand-dark)" />
         <mj-all font-family="Mohave" />
@@ -28,6 +28,10 @@ const htmlOutput = mjml2html(`
           .body-wrap {
             padding: 24px 0;
           }
+        }
+        .box-shadow a {
+          display:block !important;
+          box-shadow: 0 3px 5px 0 rgba(0 0 0 / 33%);
         }
       </mj-style>
     </mj-head>
@@ -55,17 +59,18 @@ const htmlOutput = mjml2html(`
 
             <mj-text align="center"
                      font-size="16px"
-                     font-weight="600"
+                     font-weight="500"
             >
               Please activate your online account.
               </mj-text>
             <mj-text align="center"
                      font-size="16px"
+                     font-weight="400"
             >
               An online account has been created for you. Please confirm we have your correct email address by clicking the activate button below.
             </mj-text>
-            <mj-button width="100%" padding-top="44px" href="#">
-              <img alt="" src="images/icons/User.png" width="21" height="21" srcset="images/icons/User.png 21w, images/icons/User@2x.png 42w" style="display:inline-block;margin-right:4px;vertical-align:middle;" /> Activate Your Account</mj-button>
+            <mj-button width="100%" padding-top="44px" href="#" css-class="box-shadow">
+              <img alt="" src="images/icons/User.png" width="21" height="21" srcset="images/icons/User.png 21w, images/icons/User@2x.png 42w" style="display:inline-block;margin-right:4px;vertical-align:middle;" /> <span style="display: inline-block;vertical-align: middle">Activate Your Account</span></mj-button>
           </mj-column>
         </mj-section>
 
@@ -80,38 +85,37 @@ const htmlOutput = mjml2html(`
                       src="images/Facebook.png"
                       srcset="images/Facebook.png 40w, images/Facebook@2x.png 80w"
                       alt="Facebook"
-              />
+              > </mj-social-element>
               <mj-social-element
                       name="x-noshare"
                       href="https://x.com/"
                       src="images/TwitterX.png"
                       srcset="images/TwitterX.png 40w, images/TwitterX@2x.png 80w"
                       alt="Twitter X"
-              />
+              > </mj-social-element>
               <mj-social-element
                       name="instagram"
                       href="https://instagram.com/"
                       src="images/Instagram.png"
                       srcset="images/Instagram.png 40w, images/Instagram@2x.png 80w"
                       alt="Instagram"
-              />
+              > </mj-social-element>
               <mj-social-element
                       name="youtube"
                       href="https://youtube.com/"
                       src="images/YouTube.png"
                       srcset="images/YouTube.png 40w, images/YouTube@2x.png 80w"
-                      alt="YouTube"
-              />
+                      alt="YouTube"> </mj-social-element>
             </mj-social>
           </mj-column>
         </mj-section>
 
         <mj-section>
           <mj-column>
-            <mj-text align="center" font-size="18px" font-weight="medium">
+            <mj-text align="center" font-size="18px" font-weight="400">
               <ul style="list-style:none;padding:0">
-                <li style="margin:8px 0;"><a href="#" style="color:var(--brand-dark); text-decoration: none;"><img alt="" src="images/icons/phone.png" width="21" height="21" srcset="images/icons/phone.png 21w, images/icons/phone@2x.png 42w" style="display:inline-block;margin-right:4px;vertical-align:middle;" />  +44(0)123 123 1234</a></li>
-                <li style="margin:8px 0;"><a href="#" style="color:var(--brand-dark); text-decoration: none;"><img alt="" src="images/icons/mail.png" width="21" height="21" srcset="images/icons/mail.png 21w, images/icons/mail@2x.png 42w" style="display:inline-block;margin-right:4px;vertical-align:middle;" />  test@demo.com</a></li>
+                <li style="margin:8px 0;"><a href="#" style="color:var(--brand-dark); text-decoration: none;"><img alt="" src="images/icons/Phone.png" width="21" height="21" srcset="images/icons/Phone.png 21w, images/icons/Phone@2x.png 42w" style="display:inline-block;margin-right:4px;vertical-align:middle;background-color:var(--brand-dark);" />  +44(0)123 123 1234</a></li>
+                <li style="margin:8px 0;"><a href="#" style="color:var(--brand-dark); text-decoration: none;"><img alt="" src="images/icons/Email.png" width="21" height="21" srcset="images/icons/Email.png 21w, images/icons/Email@2x.png 42w" style="display:inline-block;margin-right:4px;vertical-align:middle;background-color:var(--brand-dark);" />  test@demo.com</a></li>
                </ul>
             </mj-text>
           </mj-column>
@@ -142,8 +146,8 @@ const htmlOutput = mjml2html(`
         </mj-section>
         <mj-section>
           <mj-column>
-            <mj-text align="center" font-size="16px" font-weight="medium">
-              <a href="#" style="color:var(--brand-dark); text-decoration: none;">Terms &amp; Conditions</a> <span style="padding: 0 8px">|</span> <a href="#" style="color:var(--brand-dark); text-decoration: none;">Privacy Policy</a>
+            <mj-text align="center" font-size="16px" font-weight="400">
+              <a href="#" style="color:var(--brand-dark); text-decoration: none;white-space: nowrap;">Terms &amp; Conditions</a> <span style="padding: 0 8px">|</span> <a href="#" style="color:var(--brand-dark);text-decoration:none;white-space: nowrap;">Privacy Policy</a>
             </mj-text>
           </mj-column>
         </mj-section>
