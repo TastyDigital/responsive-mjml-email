@@ -155,7 +155,7 @@
                 <mj-section>
                     <mj-column>
                         <mj-text align="center" font-size="16px" font-weight="@fontWeightBase">
-                            <a href="#" style="color:@dark; text-decoration: none;white-space: nowrap;">Terms &amp; Conditions</a> <span style="padding: 0 8px">|</span> <a href="#" style="color:@dark;text-decoration:none;white-space: nowrap;">Privacy Policy</a>
+                            <a href="@channelBaseUrl/termsandconditions" target="_blank" style="color:@dark; text-decoration: none;white-space: nowrap;">Terms &amp; Conditions</a> <span style="padding: 0 8px">|</span> <a href="@channelBaseUrl/privacypolicy" target="_blank" style="color:@dark;text-decoration:none;white-space: nowrap;">Privacy Policy</a>
                         </mj-text>
                     </mj-column>
                 </mj-section>
