@@ -5,12 +5,12 @@
     string dark = "#091A2E";
     string light = "#E7E7E7";
     string borderRadius = "16px";
-    string channelBaseUrl= "https://mansfieldtownfc.ktckts.com";
-    // TODO: these need adding to existing skins
-    string googleFontName = "Mohave";
     string fontWeightBase = "400";
     string headingsFontWeight = "700";
     string btnFontWeight = "500";
+    // TODO: these need adding to existing skins
+    string googleFontName = "Mohave";
+    string channelBaseUrl= "https://mansfieldtownfc.ktckts.com";
 
     }
 
