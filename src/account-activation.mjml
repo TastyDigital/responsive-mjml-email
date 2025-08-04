@@ -8,7 +8,7 @@
     // TODO: these need adding to existing skins
     string googleFontName = "Mohave";
     string paragraphWeight = "400";
-    string HeadingWeight = "700";
+    string headingWeight = "700";
     string buttonWeight = "500";
     }
 
@@ -16,7 +16,7 @@
         <mj-head>
             <mj-title>Kaizen Ticketing Activate Account</mj-title>
             <mj-preview>Activate your new account</mj-preview>
-            <mj-font name="@googleFontName" href="https://fonts.googleapis.com/css2?family=@googleFontName:ital,wght@0,@paragraphWeight;0,@buttonWeight;0,@HeadingWeight;1,@paragraphWeight&amp;display=swap" />
+            <mj-font name="@googleFontName" href="https://fonts.googleapis.com/css2?family=@googleFontName:ital,wght@0,@paragraphWeight;0,@buttonWeight;0,@headingWeight;1,@paragraphWeight&amp;display=swap" />
             <mj-breakpoint width="460px" />
             <mj-attributes>
                 <mj-text color="@dark" />
@@ -54,7 +54,7 @@
                     <mj-column>
                         <mj-text  align="center"
                                   font-size="32px"
-                                  font-weight="@HeadingWeight"
+                                  font-weight="@headingWeight"
                         >
                             %=notification_greeting=%
                             @Model.Recipient.Name,
