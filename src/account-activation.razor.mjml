@@ -20,7 +20,7 @@
             <mj-font name="@googleFontName" href="https://fonts.googleapis.com/css2?family=@googleFontName:ital,wght@0,@fontWeightBase;0,@btnFontWeight;0,@headingsFontWeight;1,@fontWeightBase&amp;display=swap" />
             <mj-breakpoint width="460px" />
             <mj-attributes>
-                <mj-text color="@bodyColor" />
+                <mj-text color="@bodyColor" line-height="1.4" />
                 <mj-button background-color="@secondary" border-radius="@borderRadius" font-size="20px" font-weight="@btnFontWeight" width="100%" />
                 <mj-section padding="16px 10%" />
                 <mj-social-element padding="4px 8px" background-color="@bodyColor" />
@@ -35,6 +35,13 @@
                 .box-shadow a {
                     display:block !important;
                     box-shadow: 0 3px 5px 0 rgba(0 0 0 / 33%);
+                }
+                a {
+                    color: @primary;
+                    text-decoration: underline;
+                }
+                a:hover {
+                    text-decoration: none;
                 }
             </mj-style>
         </mj-head>
