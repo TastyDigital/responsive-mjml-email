@@ -37,8 +37,6 @@ src/
 ├── account-activation.razor.mjml   # Razor-enhanced template (from backend)
 ├── password-reset.mjml            # Pure MJML template
 ├── password-reset.razor.mjml      # Razor-enhanced template
-├── index.mjml                     # Pure MJML template
-├── input.mjml                     # Pure MJML template
 └── images/                        # Shared image assets
 ```
 
