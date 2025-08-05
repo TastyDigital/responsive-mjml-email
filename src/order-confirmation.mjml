@@ -15,6 +15,7 @@ const htmlOutput = mjml2html(`
             <mj-button background-color="var(--secondary)" border-radius="16px" font-size="20px" font-weight="500" width="100%" />
             <mj-section padding="16px 10%" />
             <mj-social-element padding="4px 8px" background-color="var(--body-color)" />
+            <mj-table padding="24px 0 16px 0" cellpadding="0" cellspacing="0" color="var(--body-color)">
             <mj-all font-family="Mohave" />
         </mj-attributes>
         <mj-style>
@@ -24,6 +25,10 @@ const htmlOutput = mjml2html(`
                 --secondary: #B90A25;
                 --body-color: #091A2E;
                 --body-bg: #E7E7E7;
+                --font-weight-base: 400;
+                --headings-font-weight: 700;
+                --btn-font-weight: 500;
+                --border-radius: 16px;
             }
             @media only screen and (min-width:660px) {
                 .body-wrap {
@@ -94,44 +99,44 @@ const htmlOutput = mjml2html(`
                     </mj-text>
                 </mj-column>
             </mj-section>
-            <mj-section>
-            <mj-column border="1px solid #E6E8EA" padding="0 21px 16px" css-class="table-shadow">
-                <mj-table padding="24px 0 16px 0" cellpadding="0" cellspacing="0">
+            <mj-section padding="0">
+            <mj-column border="1px solid #E6E8EA" padding="0 21px" css-class="table-shadow">
+                <mj-table>
                     <tr style="background-color:var(--primary);color:var(--primary-contrast);text-align:left;padding:15px 0;">
-                        <th style="padding: 12px;" colspan="3">
-                            Christmas Derby<br/>
-                            Monday 25 December 2025 12:00
+                        <th style="padding: 12px;line-height:1.2" colspan="3">
+                            <h3 style="font-weight:var(--headings-font-weight);margin:0;font-size:16px">Marine FC Season Ticket 2025/26</h3>
+                            <p style="font-weight:var(--font-weight-base);margin:0;font-size:12px">Thursday September 2025</p>
                         </th>
                     </tr>
                     <tr>
-                        <td style="padding:12px 6px 0 0">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
-                        <td style="padding:12px 6px 0">Under 14
+                        <td style="padding:12px 6px 0 0;font-size:12px;line-height:1.4;vertical-align:top;">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
+                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:var(--headings-font-weight);display:block;">Under 14</strong>
                             Ian Greaves Lower</td>
-                        <td style="padding:12px 0 0 6px">£50.00
-                            + £10.00 fee(s)</td>
+                        <td style="padding:12px 0 0 6px;font-size:16px;line-height:1.2;text-align:right;vertical-align:top;">£50.00
+                            <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee(s)</span></td>
                     </tr>
                     <tr>
-                        <td style="padding:12px 6px 0 0">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
-                        <td style="padding:12px 6px 0">Under 14
+                        <td style="padding:12px 6px 0 0;font-size:12px;line-height:1.4;vertical-align:top;">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
+                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:var(--headings-font-weight);display:block;">Adult <span style="font-weight:var(--font-weight-base);border-radius:var(--border-radius);font-size:9px;background-color:#F9F9F9;padding:2px 7px;white-space:nowrap;">Arthur Benton | MTFC0033600</span></strong>
                             Ian Greaves Lower</td>
-                        <td style="padding:12px 0 0 6px">£50.00
-                            + £10.00 fee(s)</td>
+                        <td style="padding:12px 0 0 6px;font-size:16px;line-height:1.2;text-align:right;vertical-align:top;">£50.00
+                            <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee(s)</span></td>
                     </tr>
                     <tr>
-                        <td style="padding:12px 6px 0 0">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
-                        <td style="padding:12px 6px 0">Under 14
+                        <td style="padding:12px 6px 0 0;font-size:12px;line-height:1.4;vertical-align:top;">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
+                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:var(--headings-font-weight);display:block;">Under 14</strong>
                             Ian Greaves Lower</td>
-                        <td style="padding:12px 0 0 6px">£50.00
-                            + £10.00 fee(s)</td>
+                        <td style="padding:12px 0 0 6px;font-size:16px;line-height:1.2;text-align:right;vertical-align:top;">£50.00
+                            <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee(s)</span></td>
                     </tr>
                 </mj-table>
 
-                <mj-table css-class="info-box" font-size="12px" padding="12px" cellpadding="0" cellspacing="0">
+                <mj-table css-class="info-box" font-size="12px" padding="12px">
                     <tr><td style="padding:2px 8px 0 0;vertical-align: top;">
                     <img alt="i" src="images/icons/Info.png" width="16" height="16" srcset="images/icons/Info.png 16w, images/icons/Info@2x.png 32w" style="display:block;vertical-align:top;background-color:var(--body-color);width:16px;" />
                     </td>
                         <td style="vertical-align: top;">
-                            <mj-text font-weight="500">
+                            <mj-text font-weight="var(--font-weight-base)">
                     Thank you for purchasing a Marine FC season ticket for the 2025/26 season.
                     Marine FC season tickets are only valid for National League North home league games.
                                 All supporters must adhere to the ground regulations of Marine FC which can be found on <a href="https://www.marinefc.com/" target="_blank">www.marinefc.com</a>
@@ -139,36 +144,100 @@ const htmlOutput = mjml2html(`
                         </td>
                 </mj-table>
 
-                <mj-table padding="24px 0 16px 0" cellpadding="0" cellspacing="0">
+                <mj-table>
                     <tr style="background-color:var(--primary);color:var(--primary-contrast);text-align:left;padding:15px 0;">
-                        <th style="padding: 12px;" colspan="3">
-                            Christmas Derby<br/>
-                            Monday 25 December 2025 12:00
+                        <th style="padding: 12px;line-height:1.2" colspan="3">
+                            <h3 style="font-weight:var(--headings-font-weight);margin:0;font-size:16px">Christmas Derby</h3>
+                            <p style="font-weight:var(--font-weight-base);margin:0;font-size:12px">Monday 25 December 2025 12:00</p>
+                        </th>
+                    </tr>
+
+                    <tr>
+                        <td style="padding:12px 6px 0 0;font-size:12px;width:50%;line-height:1.4">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
+                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4"><strong style="font-weight:var(--headings-font-weight);display:block;">Under 14</strong>
+                            Ian Greaves Lower</td>
+                        <td style="padding:12px 0 0 6px;font-size:16px;line-height:1.2;text-align:right;">£50.00
+                            <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee(s)</span></td>
+                    </tr>
+                    <tr>
+                        <td style="padding:12px 6px 0 0;font-size:12px;width:50%;line-height:1.4">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
+                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:var(--headings-font-weight);display:block;">Adult <span style="font-weight:var(--font-weight-base);border-radius:var(--border-radius);font-size:9px;background-color:#F9F9F9;padding:2px 7px;white-space:nowrap;">Arthur Benton | MTFC0033600</span></strong>
+                            Ian Greaves Lower</td>
+                        <td style="padding:12px 0 0 6px;font-size:16px;line-height:1.2;text-align:right;">£50.00
+                            <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee(s)</span></td>
+                    </tr>
+                </mj-table>
+
+                <mj-table>
+                    <tr style="background-color:var(--primary);color:var(--primary-contrast);text-align:left;padding:15px 0;">
+                        <th style="padding: 12px;line-height:1.2" colspan="3">
+                            <h3 style="font-weight:var(--headings-font-weight);margin:0;font-size:16px">Merchandise</h3>
                         </th>
                     </tr>
                     <tr>
-                        <td style="padding:12px 6px 0 0">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
-                        <td style="padding:12px 6px 0">Under 14
-                            Ian Greaves Lower</td>
-                        <td style="padding:12px 0 0 6px">£50.00
-                            + £10.00 fee(s)</td>
+                        <td style="padding:12px 6px 0 0;font-size:12px;width:50%;line-height:1.4">Home Shirt 2025/26</td>
+                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4">LG</td>
+                        <td style="padding:12px 0 0 6px;font-size:16px;line-height:1.2;text-align:right;">£50.00</td>
                     </tr>
                     <tr>
-                        <td style="padding:12px 6px 0 0">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
-                        <td style="padding:12px 6px 0">Under 14
-                            Ian Greaves Lower</td>
-                        <td style="padding:12px 0 0 6px">£50.00
-                            + £10.00 fee(s)</td>
+                        <td style="padding:12px 6px 0 0;font-size:12px;width:50%;line-height:1.4">Home Shirt 2025/26</td>
+                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;">SM</td>
+                        <td style="padding:12px 0 0 6px;font-size:16px;line-height:1.2;text-align:right;">£50.00</td>
+                    </tr>
+                </mj-table>
+                <mj-table>
+                    <tr style="border-top:2px solid #E6E8EA">
+                        <th style="padding:16px 6px 16px 0;text-align: left;font-size:16px;font-weight:var(--headings-font-weight)">Subtotal</th>
+                        <th style="padding:16px 6px;text-align: left;font-size:16px;font-weight:var(--headings-font-weight)">6 item[s]</th>
+                        <th style="padding:16px 0 16px 6px;text-align:right;font-size:16px;font-weight:var(--headings-font-weight)">£300.00</th>
                     </tr>
                     <tr>
-                        <td style="padding:12px 6px 0 0">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
-                        <td style="padding:12px 6px 0">Under 14
-                            Ian Greaves Lower</td>
-                        <td style="padding:12px 0 0 6px">£50.00
-                            + £10.00 fee(s)</td>
+                        <td colspan="3" style="border-bottom:2px solid #E6E8EA;padding:0 0 16px 0;text-align: left;font-size:12px">
+                            <mj-text font-size="12px" line-height="1.2" padding="0">
+                                Delivered by: Demo Delivery Method to Mr Joe Example.<br />
+                                Fulfilled by: Foreign Organisation.
+                            </mj-text>
+                        </td>
+                    </tr>
+                    <tr style="border-top:2px solid #E6E8EA;">
+                        <td style="padding:16px 6px 8px 0;text-align: left;font-size:16px;font-weight:var(--font-weight-base)" colspan="2">Delivery fee</td>
+                        <td style="padding:16px 0 8px 6px;text-align:right;font-size:16px;font-weight:var(--headings-font-weight)">£19.99</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:8px 6px 16px 0;text-align: left;font-size:16px;font-weight:var(--font-weight-base)" colspan="2">Commissions</td>
+                        <td style="padding:8px 0 16px 6px;text-align:right;font-size:16px;font-weight:var(--headings-font-weight)">£12.00</td>
+                    </tr>
+                    <tr style="border-top:2px solid #E6E8EA;">
+                        <td style="padding:16px 6px 16px 0;text-align: left;font-size:16px;font-weight:var(--font-weight-base)" colspan="2">Group Discount</td>
+                        <td style="padding:16px 0 16px 6px;text-align:right;font-size:16px;font-weight:var(--headings-font-weight)">-£5.00</td>
+                    </tr>
+                    <tr style="border-top:2px solid #6B7682;">
+                        <td style="padding:21px 6px 21px 0;text-align: left;font-size:24px;font-weight:var(--headings-font-weight)" colspan="2">Order Total</td>
+                        <td style="padding:21px 0 21px 6px;text-align:right;font-size:24px;font-weight:var(--headings-font-weight)">£196.99</td>
+                    </tr>
+                    <tr style="border-top:2px solid #6B7682;">
+                        <td style="padding:16px 6px 0 0;text-align: left;font-size:12px;font-weight:var(--font-weight-base)" colspan="2">Net Total</td>
+                        <td style="padding:16px 0 0 6px;text-align:right;font-size:12px;font-weight:var(--font-weight-base)">£112.49</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0 6px 0 0;text-align: left;font-size:12px;font-weight:var(--font-weight-base)" colspan="2">VAT 20%</td>
+                        <td style="padding:0 0 0 6px;text-align:right;font-size:12px;font-weight:var(--font-weight-base)">£22.50</td>
                     </tr>
                 </mj-table>
             </mj-column>
+            </mj-section>
+            <mj-section padding="0">
+                <mj-column>
+                    <mj-text font-size="16px" align="center" padding="24px 0">
+                        Paid by: <strong style="font-weight:var(--headings-font-weight)">Credit Card</strong>.<br/>
+                        Some final sign off text can be added here!
+                    </mj-text>
+
+                    <mj-text font-size="12px" align="center" padding="0 0 24px 0" font-weight="300">
+                        Demo Organisation | 1A Example Street, Example Town, Example, EX1 1AA, United Kingdom. <br />
+                        Vat Number: GB123456789 | Company Registration Number: 01234567
+                    </mj-text>
+                </mj-column>
             </mj-section>
             <!-- Icons -->
             <mj-section>
