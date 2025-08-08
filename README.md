@@ -8,24 +8,30 @@ Email templates use Razor variables that are derived from Bootstrap SCSS variabl
 
 ### Variable Mapping
 
-| Bootstrap SCSS Variable | Razor Variable | Description | Example Value |
-|------------------------|----------------|-------------|---------------|
-| `$primary` | `primary` | Main club/brand color | `#113D72` |
-| `$secondary` | `secondary` | Button highlight/accent color | `#B90A25` |
-| `$body-color` | `bodyColor` | Main text color | `#091A2E` |
-| `$body-bg` | `bodyBg` | Background color | `#E7E7E7` |
-| `$border-radius` | `borderRadius` | Global border radius | `16px` |
-| `$font-weight-base` | `fontWeightBase` | Base font weight | `400` |
-| `$headings-font-weight` | `headingsFontWeight` | Headings font weight | `700` |
-| `$btn-font-weight` | `btnFontWeight` | Button font weight | `500` |
-| `$font-family-sans-serif` | `fontFamilySansSerif` | Primary font family | `Mohave` |
-| N/A (uses `color-contrast()`) | `primaryContrast` | Contrast color for primary | Auto-generated |
+| Bootstrap SCSS Variable         | Razor Variable       | Description                                  | Example Value                |
+|---------------------------------|----------------------|----------------------------------------------|------------------------------|
+| `$primary`                      | `primary`            | Main club/brand color                        | `#113D72`                    |
+| `$secondary`                    | `secondary`          | Button highlight/accent color                | `#B90A25`                    |
+| `$body-color`                   | `bodyColor`          | Main text color                              | `#091A2E`                    |
+| `$body-bg`                      | `bodyBg`             | Background color                             | `#E7E7E7`                    |
+| `$border-radius`                | `borderRadius`       | Global border radius                         | `16px`                       |
+| `$font-weight-base`             | `fontWeightBase`     | Base font weight                             | `400`                        |
+| `$headings-font-weight`         | `headingsFontWeight` | Headings font weight                         | `700`                        |
+| `$btn-font-weight`              | `btnFontWeight`      | Button font weight                           | `500`                        |
+| `$light-border-subtle`          | `lightBorderSubtle`  | Soft grey for subtle backgrounds and borders | `#e9ecef`                    |
+| `$dark-border-subtle`           | `darkBorderSubtle`   | Dark grey for borders                        | `#adb5bd`                    |
+| `$font-family-base`             | `fontFamilyBase`     | Web safe font family                         | `Mohave, Arial, sans-serif"` |
+| N/A (Derived from fonts import) | `googleFontName`     | Google font family                           | `Mohave`                     |
+| N/A (Channel-specific base URL) | `channelBaseUrl`     | Base URL for channel links                   | `https://example.com`        |
+| N/A (uses `color-contrast()`)   | `primaryContrast`    | Contrast color for primary                   | Auto-generated               |
+
 
 ### Special Variables
 
-- **`primaryContrast`**: This variable doesn't have a direct SCSS equivalent. It's generated using Bootstrap 5's `color-contrast()` function to ensure text is readable against the primary color background.
 - **`googleFontName`**: Extracted from the font family for Google Fonts integration
 - **`channelBaseUrl`**: Channel-specific base URL for links
+- **`primaryContrast`**: This variable doesn't have a direct SCSS equivalent. It's generated using Bootstrap 5's `color-contrast()` function to ensure text is readable against the primary color background.
+
 
 ## File Organization
 

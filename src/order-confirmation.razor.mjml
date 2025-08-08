@@ -1,45 +1,45 @@
-import mjml2html from 'mjml'
+@inherits NotificationView<ActivateAccountModel>
+@{
+    string primary = "#113D72";
+    string primaryContrast = "#FFFFFF";
+    string secondary = "#B90A25";
+    string bodyColor = "#091A2E";
+    string bodyBg = "#E7E7E7";
+    string borderRadius = "16px";
+    string fontWeightBase = "400";
+    string headingsFontWeight = "700";
+    string btnFontWeight = "500";
+    string ctaBgSubtle = "#f8f9fa";
+    string lightBorderSubtle = "#e9ecef";
+    string darkBorderSubtle = "#adb5bd";
+    // TODO: these need adding to existing skins
+    string googleFontName = "Mohave";
+    string fontFamilyBase = $"{googleFontName}, Arial, sans-serif";
+    string channelBaseUrl= "https://mansfieldtownfc.ktckts.com";
+}
 
-/*
-Compile an mjml string
-*/
-const htmlOutput = mjml2html(`
 <mjml>
     <mj-head>
         <mj-title>Kaizen Ticketing Order Confirmation</mj-title>
         <mj-preview>Thank you for your order</mj-preview>
-        <mj-font name="Mohave" href="https://fonts.googleapis.com/css2?family=Mohave:ital,wght@0,400;0,500;0,700;1,400&amp;display=swap" />
+        <mj-font name="@googleFontName" href="https://fonts.googleapis.com/css2?family=@googleFontName:ital,wght@0,@fontWeightBase;0,@btnFontWeight;0,@headingsFontWeight;1,@fontWeightBase&amp;display=swap" />
         <mj-breakpoint width="460px" />
         <mj-attributes>
-            <mj-text color="var(--body-color)" line-height="1.4" />
-            <mj-button background-color="var(--secondary)" border-radius="16px" font-size="20px" font-weight="500" width="100%" />
+            <mj-text color="@bodyColor" line-height="1.4" />
+            <mj-button background-color="@secondary" border-radius="@borderRadius" font-size="20px" font-weight="@btnFontWeight" width="100%" />
             <mj-section padding="16px 10%" />
-            <mj-social-element padding="4px 8px" background-color="var(--body-color)" />
-            <mj-table padding="24px 0 16px 0" cellpadding="0" cellspacing="0" color="var(--body-color)" />
-            <mj-all font-family="Mohave, Arial, sans-serif" />
+            <mj-social-element padding="4px 8px" background-color="@bodyColor" />
+            <mj-table padding="24px 0 16px 0" cellpadding="0" cellspacing="0" color="@bodyColor" />
+            <mj-all font-family="@fontFamilyBase" />
         </mj-attributes>
         <mj-style>
-            .body-wrap {
-                --primary: #113D72;
-                --primary-contrast: #FFFFFF;
-                --secondary: #B90A25;
-                --body-color: #091A2E;
-                --body-bg: #E7E7E7;
-                --font-weight-base: 400;
-                --headings-font-weight: 700;
-                --btn-font-weight: 500;
-                --border-radius: 16px;
-                --cta-bg-subtle: #f8f9fa;
-                --light-border-subtle: #e9ecef;
-                --dark-border-subtle: #adb5bd;
-            }
-            @media only screen and (min-width:660px) {
+            @@media only screen and (min-width:660px) {
                 .body-wrap {
                     padding: 24px 0;
                 }
             }
             a {
-                color: var(--primary);
+                color: @primary;
                 text-decoration: underline;
             }
             a:hover {
@@ -53,15 +53,15 @@ const htmlOutput = mjml2html(`
                 display:block !important;
             }
             .info-box {
-                background-color: var(--cta-bg-subtle);
-                border: 1px solid var(--light-border-subtle);
+                background-color: @ctaBgSubtle;
+                border: 1px solid @lightBorderSubtle;
                 padding: 12px;
                 margin: 0 0 21px 0;
             }
         </mj-style>
     </mj-head>
-    <mj-body width="660px" background-color="var(--body-bg)" css-class="body-wrap">
-        <mj-wrapper border="4px solid var(--primary)" padding="42px 32px 16" background-color="#ffffff">
+    <mj-body width="660px" background-color="@bodyBg" css-class="body-wrap">
+        <mj-wrapper border="4px solid @primary" padding="42px 32px 16" background-color="#ffffff">
             <mj-section padding-top="42px">
                 <mj-column>
                     <mj-image padding="0"
@@ -103,72 +103,68 @@ const htmlOutput = mjml2html(`
                 </mj-column>
             </mj-section>
             <mj-section padding="0">
-            <mj-column border="1px solid var(--light-border-subtle)" padding="0 21px" css-class="table-shadow">
+            <mj-column border="1px solid @lightBorderSubtle" padding="0 21px" css-class="table-shadow">
                 <mj-table>
-                    <tr style="background-color:var(--primary);color:var(--primary-contrast);text-align:left;padding:15px 0;">
+                    <tr style="background-color:@primary;color:@primaryContrast;text-align:left;padding:15px 0;">
                         <th style="padding: 12px;line-height:1.2" colspan="3">
-                            <h3 style="font-weight:var(--headings-font-weight);margin:0;font-size:16px">Marine FC Season Ticket 2025/26</h3>
-                            <p style="font-weight:var(--font-weight-base);margin:0;font-size:12px">Thursday September 2025</p>
+                            <h3 style="font-weight:@headingsFontWeight;margin:0;font-size:16px">Marine FC Season Ticket 2025/26</h3>
+                            <p style="font-weight:@fontWeightBase;margin:0;font-size:12px">Thursday September 2025</p>
                         </th>
                     </tr>
                     <tr>
                         <td style="padding:12px 6px 0 0;font-size:12px;line-height:1.4;vertical-align:top;">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
-                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:var(--headings-font-weight);display:block;">Under 14</strong>
+                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:@headingsFontWeight;display:block;">Under 14</strong>
                             Ian Greaves Lower</td>
                         <td style="padding:12px 0 0 6px;font-size:16px;line-height:1.2;text-align:right;vertical-align:top;">£50.00
                             <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee(s)</span></td>
                     </tr>
                     <tr>
                         <td style="padding:12px 6px 0 0;font-size:12px;line-height:1.4;vertical-align:top;">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
-                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:var(--headings-font-weight);display:block;">Adult <span style="font-weight:var(--font-weight-base);border-radius:var(--border-radius);font-size:9px;background-color:var(--cta-bg-subtle);padding:2px 7px;white-space:nowrap;">Arthur Benton | MTFC0033600</span></strong>
+                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:@headingsFontWeight;display:block;">Adult <span style="font-weight:@fontWeightBase;border-radius:@borderRadius;font-size:9px;background-color:@ctaBgSubtle;padding:2px 7px;white-space:nowrap;">Arthur Benton | MTFC0033600</span></strong>
                             Ian Greaves Lower</td>
                         <td style="padding:12px 0 0 6px;font-size:16px;line-height:1.2;text-align:right;vertical-align:top;">£50.00
                             <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee(s)</span></td>
                     </tr>
                     <tr>
                         <td style="padding:12px 6px 0 0;font-size:12px;line-height:1.4;vertical-align:top;">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
-                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:var(--headings-font-weight);display:block;">Under 14</strong>
+                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:@headingsFontWeight;display:block;">Under 14</strong>
                             Ian Greaves Lower</td>
                         <td style="padding:12px 0 0 6px;font-size:16px;line-height:1.2;text-align:right;vertical-align:top;">£50.00
                             <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee(s)</span></td>
                     </tr>
                 </mj-table>
-
                 <mj-table css-class="info-box" font-size="12px" padding="12px">
-                    <tr>
-                        <td style="padding:2px 8px 0 0;vertical-align: top;">
-                    <img alt="i" src="images/icons/Info.png" width="16" height="16" srcset="images/icons/Info.png 16w, images/icons/Info@2x.png 32w" style="display:block;vertical-align:top;background-color:var(--body-color);width:16px;height:16px;" />
+                    <tr><td style="padding:2px 8px 0 0;vertical-align: top;">
+                        <img alt="i" src="images/icons/Info.png" width="16" height="16" srcset="images/icons/Info.png 16w, images/icons/Info@2x.png 32w" style="display:block;vertical-align:top;background-color:@bodyColor;width:16px;height:16px;" />
                     </td>
                         <td style="vertical-align: top;">
                             <mj-text>
-                                <div style="line-height: 1.333;font-weight:var(--font-weight-base)">
-                    Thank you for purchasing a Marine FC season ticket for the 2025/26 season.
-                    Marine FC season tickets are only valid for National League North home league games.
-                                All supporters must adhere to the ground regulations of Marine FC which can be found on <a href="https://www.marinefc.com/" target="_blank">www.marinefc.com</a>
+                                <div style="line-height: 1.333;font-weight:@fontWeightBase">
+                                    Thank you for purchasing a Marine FC season ticket for the 2025/26 season.
+                                    Marine FC season tickets are only valid for National League North home league games.
+                                    All supporters must adhere to the ground regulations of Marine FC which can be found on <a href="https://www.marinefc.com/" target="_blank">www.marinefc.com</a>
                                 </div>
                             </mj-text>
-                        </td>
-                    </tr>
+                        </td></tr>
                 </mj-table>
-
                 <mj-table>
-                    <tr style="background-color:var(--primary);color:var(--primary-contrast);text-align:left;padding:15px 0;">
+                    <tr style="background-color:@primary;color:@primaryContrast;text-align:left;padding:15px 0;">
                         <th style="padding: 12px;line-height:1.2" colspan="3">
-                            <h3 style="font-weight:var(--headings-font-weight);margin:0;font-size:16px">Christmas Derby</h3>
-                            <p style="font-weight:var(--font-weight-base);margin:0;font-size:12px">Monday 25 December 2025 12:00</p>
+                            <h3 style="font-weight:@headingsFontWeight;margin:0;font-size:16px">Christmas Derby</h3>
+                            <p style="font-weight:@fontWeightBase;margin:0;font-size:12px">Monday 25 December 2025 12:00</p>
                         </th>
                     </tr>
 
                     <tr>
                         <td style="padding:12px 6px 0 0;font-size:12px;width:50%;line-height:1.4">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
-                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4"><strong style="font-weight:var(--headings-font-weight);display:block;">Under 14</strong>
+                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4"><strong style="font-weight:@headingsFontWeight;display:block;">Under 14</strong>
                             Ian Greaves Lower</td>
                         <td style="padding:12px 0 0 6px;font-size:16px;line-height:1.2;text-align:right;">£50.00
                             <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee(s)</span></td>
                     </tr>
                     <tr>
                         <td style="padding:12px 6px 0 0;font-size:12px;width:50%;line-height:1.4">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
-                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:var(--headings-font-weight);display:block;">Adult <span style="font-weight:var(--font-weight-base);border-radius:var(--border-radius);font-size:9px;background-color:var(--cta-bg-subtle);padding:2px 7px;white-space:nowrap;">Arthur Benton | MTFC0033600</span></strong>
+                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:@headingsFontWeight;display:block;">Adult <span style="font-weight:@fontWeightBase;border-radius:@borderRadius;font-size:9px;background-color:@ctaBgSubtle;padding:2px 7px;white-space:nowrap;">Arthur Benton | MTFC0033600</span></strong>
                             Ian Greaves Lower</td>
                         <td style="padding:12px 0 0 6px;font-size:16px;line-height:1.2;text-align:right;">£50.00
                             <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee(s)</span></td>
@@ -176,9 +172,9 @@ const htmlOutput = mjml2html(`
                 </mj-table>
 
                 <mj-table>
-                    <tr style="background-color:var(--primary);color:var(--primary-contrast);text-align:left;padding:15px 0;">
+                    <tr style="background-color:@primary;color:@primaryContrast;text-align:left;padding:15px 0;">
                         <th style="padding: 12px;line-height:1.2" colspan="3">
-                            <h3 style="font-weight:var(--headings-font-weight);margin:0;font-size:16px">Merchandise</h3>
+                            <h3 style="font-weight:@headingsFontWeight;margin:0;font-size:16px">Merchandise</h3>
                         </th>
                     </tr>
                     <tr>
@@ -193,42 +189,42 @@ const htmlOutput = mjml2html(`
                     </tr>
                 </mj-table>
                 <mj-table>
-                    <tr style="border-top:2px solid var(--light-border-subtle)">
-                        <th style="padding:16px 6px 16px 0;text-align: left;font-size:16px;font-weight:var(--headings-font-weight)">Subtotal</th>
-                        <th style="padding:16px 6px;text-align: left;font-size:16px;font-weight:var(--headings-font-weight)">6 item[s]</th>
-                        <th style="padding:16px 0 16px 6px;text-align:right;font-size:16px;font-weight:var(--headings-font-weight)">£300.00</th>
+                    <tr style="border-top:2px solid @lightBorderSubtle">
+                        <th style="padding:16px 6px 16px 0;text-align: left;font-size:16px;font-weight:@headingsFontWeight">Subtotal</th>
+                        <th style="padding:16px 6px;text-align: left;font-size:16px;font-weight:@headingsFontWeight">6 item[s]</th>
+                        <th style="padding:16px 0 16px 6px;text-align:right;font-size:16px;font-weight:@headingsFontWeight">£300.00</th>
                     </tr>
                     <tr>
-                        <td colspan="3" style="border-bottom:2px solid var(--light-border-subtle);padding:0 0 16px 0;text-align: left;font-size:12px">
+                        <td colspan="3" style="border-bottom:2px solid @lightBorderSubtle;padding:0 0 16px 0;text-align: left;font-size:12px">
                             <mj-text font-size="12px" line-height="1.2" padding="0">
                                 Delivered by: Demo Delivery Method to Mr Joe Example.<br />
                                 Fulfilled by: Foreign Organisation.
                             </mj-text>
                         </td>
                     </tr>
-                    <tr style="border-top:2px solid var(--light-border-subtle);">
-                        <td style="padding:16px 6px 8px 0;text-align: left;font-size:16px;font-weight:var(--font-weight-base)" colspan="2">Delivery fee</td>
-                        <td style="padding:16px 0 8px 6px;text-align:right;font-size:16px;font-weight:var(--headings-font-weight)">£19.99</td>
+                    <tr style="border-top:2px solid @lightBorderSubtle;">
+                        <td style="padding:16px 6px 8px 0;text-align: left;font-size:16px;font-weight:@fontWeightBase" colspan="2">Delivery fee</td>
+                        <td style="padding:16px 0 8px 6px;text-align:right;font-size:16px;font-weight:@headingsFontWeight">£19.99</td>
                     </tr>
                     <tr>
-                        <td style="padding:8px 6px 16px 0;text-align: left;font-size:16px;font-weight:var(--font-weight-base)" colspan="2">Commissions</td>
-                        <td style="padding:8px 0 16px 6px;text-align:right;font-size:16px;font-weight:var(--headings-font-weight)">£12.00</td>
+                        <td style="padding:8px 6px 16px 0;text-align: left;font-size:16px;font-weight:@fontWeightBase" colspan="2">Commissions</td>
+                        <td style="padding:8px 0 16px 6px;text-align:right;font-size:16px;font-weight:@headingsFontWeight">£12.00</td>
                     </tr>
-                    <tr style="border-top:2px solid var(--light-border-subtle);">
-                        <td style="padding:16px 6px 16px 0;text-align: left;font-size:16px;font-weight:var(--font-weight-base)" colspan="2">Group Discount</td>
-                        <td style="padding:16px 0 16px 6px;text-align:right;font-size:16px;font-weight:var(--headings-font-weight)">-£5.00</td>
+                    <tr style="border-top:2px solid @lightBorderSubtle;">
+                        <td style="padding:16px 6px 16px 0;text-align: left;font-size:16px;font-weight:@fontWeightBase" colspan="2">Group Discount</td>
+                        <td style="padding:16px 0 16px 6px;text-align:right;font-size:16px;font-weight:@headingsFontWeight">-£5.00</td>
                     </tr>
-                    <tr style="border-top:2px solid var(--dark-border-subtle);">
-                        <td style="padding:21px 6px 21px 0;text-align: left;font-size:24px;font-weight:var(--headings-font-weight)" colspan="2">Order Total</td>
-                        <td style="padding:21px 0 21px 6px;text-align:right;font-size:24px;font-weight:var(--headings-font-weight)">£196.99</td>
+                    <tr style="border-top:2px solid @darkBorderSubtle;">
+                        <td style="padding:21px 6px 21px 0;text-align: left;font-size:24px;font-weight:@headingsFontWeight" colspan="2">Order Total</td>
+                        <td style="padding:21px 0 21px 6px;text-align:right;font-size:24px;font-weight:@headingsFontWeight">£196.99</td>
                     </tr>
-                    <tr style="border-top:2px solid var(--dark-border-subtle);">
-                        <td style="padding:16px 6px 0 0;text-align: left;font-size:12px;font-weight:var(--font-weight-base)" colspan="2">Net Total</td>
-                        <td style="padding:16px 0 0 6px;text-align:right;font-size:12px;font-weight:var(--font-weight-base)">£112.49</td>
+                    <tr style="border-top:2px solid @darkBorderSubtle;">
+                        <td style="padding:16px 6px 0 0;text-align: left;font-size:12px;font-weight:@fontWeightBase" colspan="2">Net Total</td>
+                        <td style="padding:16px 0 0 6px;text-align:right;font-size:12px;font-weight:@fontWeightBase">£112.49</td>
                     </tr>
                     <tr>
-                        <td style="padding:0 6px 0 0;text-align: left;font-size:12px;font-weight:var(--font-weight-base)" colspan="2">VAT 20%</td>
-                        <td style="padding:0 0 0 6px;text-align:right;font-size:12px;font-weight:var(--font-weight-base)">£22.50</td>
+                        <td style="padding:0 6px 0 0;text-align: left;font-size:12px;font-weight:@fontWeightBase" colspan="2">VAT 20%</td>
+                        <td style="padding:0 0 0 6px;text-align:right;font-size:12px;font-weight:@fontWeightBase">£22.50</td>
                     </tr>
                 </mj-table>
             </mj-column>
@@ -236,11 +232,11 @@ const htmlOutput = mjml2html(`
             <mj-section padding="0">
                 <mj-column>
                     <mj-text font-size="16px" align="center" padding="24px 0">
-                        Paid by: <strong style="font-weight:var(--headings-font-weight)">Credit Card</strong>.<br/>
+                        Paid by: <strong style="font-weight:@headingsFontWeight">Credit Card</strong>.<br/>
                         Some final sign off text can be added here!
                     </mj-text>
 
-                    <mj-text font-size="12px" align="center" padding="0 0 24px 0" font-weight="var(--font-weight-base)" color="var(--dark-border-subtle)">
+                    <mj-text font-size="12px" align="center" padding="0 0 24px 0" font-weight="@fontWeightBase" color="@darkBorderSubtle">
                         Demo Organisation | 1A Example Street, Example Town, Example, EX1 1AA, United Kingdom. <br />
                         Vat Number: GB123456789 | Company Registration Number: 01234567
                     </mj-text>
@@ -286,8 +282,8 @@ const htmlOutput = mjml2html(`
                 <mj-column>
                     <mj-text align="center" font-size="18px" font-weight="400">
                         <ul style="list-style:none;padding:0">
-                            <li style="margin:8px 0;"><a href="#" style="color:var(--body-color); text-decoration: none;"><img alt="" src="images/icons/Phone.png" width="21" height="21" srcset="images/icons/Phone.png 21w, images/icons/Phone@2x.png 42w" style="display:inline-block;margin-right:4px;vertical-align:middle;background-color:var(--body-color);" />  +44(0)123 123 1234</a></li>
-                            <li style="margin:8px 0;"><a href="#" style="color:var(--body-color); text-decoration: none;"><img alt="" src="images/icons/Email.png" width="21" height="21" srcset="images/icons/Email.png 21w, images/icons/Email@2x.png 42w" style="display:inline-block;margin-right:4px;vertical-align:middle;background-color:var(--body-color);" />  test@demo.com</a></li>
+                            <li style="margin:8px 0;"><a href="#" style="color:@bodyColor; text-decoration: none;"><img alt="" src="images/icons/Phone.png" width="21" height="21" srcset="images/icons/Phone.png 21w, images/icons/Phone@2x.png 42w" style="display:inline-block;margin-right:4px;vertical-align:middle;background-color:@bodyColor;" />  +44(0)123 123 1234</a></li>
+                            <li style="margin:8px 0;"><a href="#" style="color:@bodyColor; text-decoration: none;"><img alt="" src="images/icons/Email.png" width="21" height="21" srcset="images/icons/Email.png 21w, images/icons/Email@2x.png 42w" style="display:inline-block;margin-right:4px;vertical-align:middle;background-color:@bodyColor;" />  test@demo.com</a></li>
                         </ul>
                     </mj-text>
                 </mj-column>
@@ -319,17 +315,10 @@ const htmlOutput = mjml2html(`
             <mj-section>
                 <mj-column>
                     <mj-text align="center" font-size="16px" font-weight="400">
-                        <a href="#" style="color:var(--brand-dark); text-decoration: none;white-space: nowrap;">Terms &amp; Conditions</a> <span style="padding: 0 8px">|</span> <a href="#" style="color:var(--body-color);text-decoration:none;white-space: nowrap;">Privacy Policy</a>
+                        <a href="#" style="color:@bodyColor; text-decoration: none;white-space: nowrap;">Terms &amp; Conditions</a> <span style="padding: 0 8px">|</span> <a href="#" style="color:@bodyColor;text-decoration:none;white-space: nowrap;">Privacy Policy</a>
                     </mj-text>
                 </mj-column>
             </mj-section>
         </mj-wrapper>
     </mj-body>
 </mjml>
-`, options)
-
-
-/*
-Print the responsive HTML generated and MJML errors if any
-*/
-console.log(htmlOutput)

@@ -15,7 +15,7 @@ const htmlOutput = mjml2html(`
         <mj-button background-color="var(--secondary)" border-radius="16px" font-size="20px" font-weight="500" width="100%" />
         <mj-section padding="16px 10%" />
         <mj-social-element padding="4px 8px" background-color="var(--body-color)" />
-        <mj-all font-family="Mohave" />
+        <mj-all font-family="Mohave, Arial, sans-serif" />
       </mj-attributes>
       <mj-style>
         .body-wrap {
@@ -154,7 +154,7 @@ const htmlOutput = mjml2html(`
         <mj-section>
           <mj-column>
             <mj-text align="center" font-size="16px" font-weight="400">
-              <a href="#" style="color:var(--brand-dark); text-decoration: none;white-space: nowrap;">Terms &amp; Conditions</a> <span style="padding: 0 8px">|</span> <a href="#" style="color:var(--body-color);text-decoration:none;white-space: nowrap;">Privacy Policy</a>
+              <a href="#" style="color:var(--body-color); text-decoration: none;white-space: nowrap;">Terms &amp; Conditions</a> <span style="padding: 0 8px">|</span> <a href="#" style="color:var(--body-color);text-decoration:none;white-space: nowrap;">Privacy Policy</a>
             </mj-text>
           </mj-column>
         </mj-section>

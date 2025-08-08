@@ -8,8 +8,12 @@
         string fontWeightBase = "400";
         string headingsFontWeight = "700";
         string btnFontWeight = "500";
+        string ctaBgSubtle = "#f8f9fa";
+        string lightBorderSubtle = "#e9ecef";
+        string darkBorderSubtle = "#adb5bd";
         // TODO: these need adding to existing skins
         string googleFontName = "Mohave";
+        string fontFamilyBase = $"{googleFontName}, Arial, sans-serif";
         string channelBaseUrl= "https://mansfieldtownfc.ktckts.com";
     }
 
@@ -24,7 +28,7 @@
                 <mj-button background-color="@secondary" border-radius="@borderRadius" font-size="20px" font-weight="@btnFontWeight" width="100%" />
                 <mj-section padding="16px 10%" />
                 <mj-social-element padding="4px 8px" background-color="@bodyColor" />
-                <mj-all font-family="@googleFontName, Arial, sans-serif" />
+                <mj-all font-family="@fontFamilyBase" />
             </mj-attributes>
             <mj-style>
                 @@media only screen and (min-width:660px) {
