@@ -39,18 +39,20 @@ Templates are organized in the `src/` folder with a clear naming convention:
 
 ```
 src/
-├── account-activation.mjml         # Pure MJML template (for development)
-├── account-activation.razor.mjml   # Razor-enhanced template (from backend)
-├── password-reset.mjml            # Pure MJML template
-├── password-reset.razor.mjml      # Razor-enhanced template
-└── images/                        # Shared image assets
+├── account-activation.mjml              # Pure MJML template (for development)
+├── account-activation.razor.mjml        # Razor-enhanced template (from backend)
+├── account-activation.skin.razor.mjml   # @Skin-enhanced template
+├── password-reset.mjml                  # Pure MJML template
+├── password-reset.razor.mjml            # Razor-enhanced template
+└── images/                              # Shared image assets
 ```
 
 ### Naming Convention
 - **Pure MJML**: `template-name.mjml`
 - **Razor-enhanced**: `template-name.razor.mjml`
+- **@Skin-enhanced**: `template-name.skin.razor.mjml`
 
-This convention makes it immediately clear which files contain Razor syntax and which are pure MJML.
+This convention makes it immediately clear which files contain Razor syntax and which are pure MJML. Files with the `.skin.razor.mjml` extension use @Skin variables directly instead of local Razor variables, providing direct access to the skin configuration from the backend.
 
 ## Development Workflow
 
