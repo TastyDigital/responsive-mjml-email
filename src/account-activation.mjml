@@ -43,7 +43,7 @@ const htmlOutput = mjml2html(`
       </mj-style>
     </mj-head>
     <mj-body width="660px" background-color="var(--body-bg)" css-class="body-wrap">
-      <mj-wrapper border="4px solid var(--primary)" padding="42px 32px 16" background-color="#ffffff">
+      <mj-wrapper border="4px solid var(--primary)" padding="0" background-color="#ffffff">
         <mj-section padding-top="42px">
           <mj-column>
             <mj-image padding="0"

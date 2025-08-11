@@ -8,22 +8,22 @@ Email templates use Razor variables that are derived from Bootstrap SCSS variabl
 
 ### Variable Mapping
 
-| Bootstrap SCSS Variable         | Razor Variable       | Description                                  | Example Value                |
-|---------------------------------|----------------------|----------------------------------------------|------------------------------|
-| `$primary`                      | `primary`            | Main club/brand color                        | `#113D72`                    |
-| `$secondary`                    | `secondary`          | Button highlight/accent color                | `#B90A25`                    |
-| `$body-color`                   | `bodyColor`          | Main text color                              | `#091A2E`                    |
-| `$body-bg`                      | `bodyBg`             | Background color                             | `#E7E7E7`                    |
-| `$border-radius`                | `borderRadius`       | Global border radius                         | `16px`                       |
-| `$font-weight-base`             | `fontWeightBase`     | Base font weight                             | `400`                        |
-| `$headings-font-weight`         | `headingsFontWeight` | Headings font weight                         | `700`                        |
-| `$btn-font-weight`              | `btnFontWeight`      | Button font weight                           | `500`                        |
-| `$light-border-subtle`          | `lightBorderSubtle`  | Soft grey for subtle backgrounds and borders | `#e9ecef`                    |
-| `$dark-border-subtle`           | `darkBorderSubtle`   | Dark grey for borders                        | `#adb5bd`                    |
-| `$font-family-base`             | `fontFamilyBase`     | Web safe font family                         | `Mohave, Arial, sans-serif"` |
-| N/A (Derived from fonts import) | `googleFontName`     | Google font family                           | `Mohave`                     |
-| N/A (Channel-specific base URL) | `channelBaseUrl`     | Base URL for channel links                   | `https://example.com`        |
-| N/A (uses `color-contrast()`)   | `primaryContrast`    | Contrast color for primary                   | Auto-generated               |
+| Bootstrap SCSS Variable         | Razor Variable       | @Skin Variable               | Description                                  | Example Value                |
+|---------------------------------|----------------------|------------------------------|----------------------------------------------|------------------------------|
+| `$primary`                      | `primary`            | `@Skin.PrimaryColourHex`     | Main club/brand color                        | `#113D72`                    |
+| `$secondary`                    | `secondary`          | `@Skin.SecondaryColourHex`   | Button highlight/accent color                | `#B90A25`                    |
+| `$body-color`                   | `bodyColor`          | `@Skin.TextColourHex`        | Main text color                              | `#091A2E`                    |
+| `$body-bg`                      | `bodyBg`             | `@Skin.BackgroundColourHex`  | Background color                             | `#E7E7E7`                    |
+| `$border-radius`                | `borderRadius`       | `@Skin.BorderRadius`         | Global border radius                         | `16px`                       |
+| `$font-weight-base`             | `fontWeightBase`     | `@Skin.BaseFontWeight`       | Base font weight                             | `400`                        |
+| `$headings-font-weight`         | `headingsFontWeight` | `@Skin.HeadingsFontWeight`   | Headings font weight                         | `700`                        |
+| `$btn-font-weight`              | `btnFontWeight`      | `@Skin.ButtonFontWeight`     | Button font weight                           | `500`                        |
+| `$light-border-subtle`          | `lightBorderSubtle`  | TBD                          | Soft grey for subtle backgrounds and borders | `#e9ecef`                    |
+| `$dark-border-subtle`           | `darkBorderSubtle`   | TBD                          | Dark grey for borders                        | `#adb5bd`                    |
+| `$font-family-base`             | `fontFamilyBase`     | TBD                          | Web safe font family                         | `Mohave, Arial, sans-serif"` |
+| N/A (Derived from fonts import) | `googleFontName`     | `@Skin.FontFamilySansSerif`  | Google font family                           | `Mohave`                     |
+| N/A (Channel-specific base URL) | `channelBaseUrl`     | TBD                          | Base URL for channel links                   | `https://example.com`        |
+| N/A (uses `color-contrast()`)   | `primaryContrast`    | TBD                          | Contrast color for primary                   | Auto-generated               |
 
 
 ### Special Variables
