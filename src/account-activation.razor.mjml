@@ -21,7 +21,7 @@
         <mj-head>
             <mj-title>Kaizen Ticketing Activate Account</mj-title>
             <mj-preview>Activate your new account</mj-preview>
-            <mj-font name="@googleFontName" href="https://fonts.googleapis.com/css2?family=@googleFontName:ital,wght@0,@fontWeightBase;0,@btnFontWeight;0,@headingsFontWeight;1,@fontWeightBase&amp;display=swap" />
+            <mj-font name="@googleFontName" href="https://fonts.googleapis.com/css2?family=@googleFontName:ital,wght@@0,@fontWeightBase;0,@btnFontWeight;0,@headingsFontWeight;1,@fontWeightBase&amp;display=swap" />
             <mj-breakpoint width="460px" />
             <mj-attributes>
                 <mj-text color="@bodyColor" line-height="1.4" />
@@ -61,7 +61,16 @@
                         />
                     </mj-column>
                 </mj-section>
-
+                <mj-section padding="0">
+                    <mj-column>
+                        <mj-image padding="0"
+                                  width="660px"
+                                  src="images/FeaturePic.png"
+                                  srcset="images/FeaturePic.png 660w, images/FeaturePic@2x.png 1320w"
+                                  alt="Hero Photo"
+                        />
+                    </mj-column>
+                </mj-section>
                 <mj-section>
                     <mj-column>
                         <mj-text  align="center"

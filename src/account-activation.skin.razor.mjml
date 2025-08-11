@@ -11,7 +11,7 @@
         <mj-head>
             <mj-title>Kaizen Ticketing Activate Account</mj-title>
             <mj-preview>Activate your new account</mj-preview>
-            <mj-font name="@Skin.FontFamilySansSerif" href="https://fonts.googleapis.com/css2?family=@Skin.FontFamilySansSerif:ital,wght@0,@Skin.BaseFontWeight;0,@Skin.ButtonFontWeight;0,@Skin.HeadingsFontWeight;;1,@Skin.BaseFontWeight&amp;display=swap" />
+            <mj-font name="@Skin.FontFamilySansSerif" href="https://fonts.googleapis.com/css2?family=@Skin.FontFamilySansSerif:ital,wght@@0,@Skin.BaseFontWeight;0,@Skin.ButtonFontWeight;0,@Skin.HeadingsFontWeight;1,@Skin.BaseFontWeight&amp;display=swap" />
             <mj-breakpoint width="460px" />
             <mj-attributes>
                 <mj-text color="@Skin.TextColourHex" line-height="1.4" />
@@ -47,12 +47,16 @@
                         @await MjAssetImgAsync("club_crest_slot", 188, 188, new { padding="0", alt="Hinckley LRFC", width="94px" })
                     </mj-column>
                 </mj-section>
-
+                <mj-section padding="0">
+                    <mj-column>
+                        @await MjAssetImgAsync("hero_slot", 1320, 784, new { padding="0", alt="Hero Photo", width="660px" })
+                    </mj-column>
+                </mj-section>
                 <mj-section>
                     <mj-column>
                         <mj-text  align="center"
                                   font-size="32px"
-                                  font-weight="@Skin.HeadingsFontWeight;"
+                                  font-weight="@Skin.HeadingsFontWeight"
                         >
                             %=notification_greeting=%
                             @Model.Recipient.Name,
@@ -124,10 +128,10 @@
                         <mj-text align="center" font-size="18px" font-weight="@Skin.BaseFontWeight">
                             <ul style="list-style:none;padding:0">
                                 <li style="margin:8px 0;"><a href="#" style="color:@Skin.TextColourHex; text-decoration: none;">
-                                    @await MjAssetImgAsync("phone_icon_slot", 42, 42, new { padding="0", alt="Phone", width="21px", height="21", style="display:inline-block;margin-right:4px;vertical-align:middle;background-color:@Skin.TextColourHex;" }) +44(0)123 123 1234</a>
+                                    @await MjAssetImgAsync("phone_icon_slot", 42, 42, new { padding="0", alt="Phone", width="21px", height="21", style="display:inline-block;margin-right:4px;vertical-align:middle;background-color:@Skin.TextColourHex;21px;height:21px;" }) +44(0)123 123 1234</a>
                                 </li>
                                 <li style="margin:8px 0;"><a href="#" style="color:@Skin.TextColourHex; text-decoration: none;">
-                                    @await MjAssetImgAsync("email_icon_slot", 42, 42, new { padding="0", alt="Email", width="21px", height="21", style="display:inline-block;margin-right:4px;vertical-align:middle;background-color:@Skin.TextColourHex;" }) test@demo.com</a>
+                                    @await MjAssetImgAsync("email_icon_slot", 42, 42, new { padding="0", alt="Email", width="21px", height="21", style="display:inline-block;margin-right:4px;vertical-align:middle;background-color:@Skin.TextColourHex;21px;height:21px;" }) test@demo.com</a>
                                 </li>
                             </ul>
                         </mj-text>

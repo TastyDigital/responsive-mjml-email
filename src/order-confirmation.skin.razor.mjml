@@ -1,6 +1,5 @@
 @inherits NotificationView<OrderConfirmationModel>
 @{
-    string primary = "#113D72";
     string primaryContrast = "#FFFFFF";
     string secondary = "#B90A25";
     string bodyColor = "#091A2E";
@@ -9,12 +8,14 @@
     string fontWeightBase = "400";
     string headingsFontWeight = "700";
     string btnFontWeight = "500";
+
+    var (Common, Local) = HtmlLocalizerFactory.GetLocalizers("notification-activate");
     string ctaBgSubtle = "#f8f9fa";
     string lightBorderSubtle = "#e9ecef";
     string darkBorderSubtle = "#adb5bd";
     // TODO: these need adding to existing skins
-    string googleFontName = "Mohave";
-    string fontFamilyBase = $"{googleFontName}, Arial, sans-serif";
+    // string fontFamilyBase = $"{@Skin.FontFamilySansSerif}, Arial, sans-serif";
+    string fontFamilyBase = $"{@Skin.FontFamilySansSerif}, Arial, sans-serif";
     string channelBaseUrl= "https://mansfieldtownfc.ktckts.com";
 }
 
@@ -22,14 +23,14 @@
     <mj-head>
         <mj-title>Kaizen Ticketing Order Confirmation</mj-title>
         <mj-preview>Thank you for your order</mj-preview>
-        <mj-font name="@googleFontName" href="https://fonts.googleapis.com/css2?family=@googleFontName:ital,wght@0,@fontWeightBase;0,@btnFontWeight;0,@headingsFontWeight;1,@fontWeightBase&amp;display=swap" />
+        <mj-font name="@Skin.FontFamilySansSerif" href="https://fonts.googleapis.com/css2?family=@Skin.FontFamilySansSerif:ital,wght@@0,@Skin.BaseFontWeight;0,@Skin.ButtonFontWeight;0,@Skin.HeadingsFontWeight;1,@Skin.BaseFontWeight&amp;display=swap" />
         <mj-breakpoint width="460px" />
         <mj-attributes>
-            <mj-text color="@bodyColor" line-height="1.4" />
-            <mj-button background-color="@secondary" border-radius="@borderRadius" font-size="20px" font-weight="@btnFontWeight" width="100%" />
+            <mj-text color="@Skin.TextColourHex" line-height="1.4" />
+            <mj-button background-color="@Skin.SecondaryColourHex" border-radius="@Skin.BorderRadius" font-size="20px" font-weight="@Skin.ButtonFontWeight" width="100%" />
             <mj-section padding="16px 10%" />
-            <mj-social-element padding="4px 8px" background-color="@bodyColor" />
-            <mj-table padding="24px 0 16px 0" cellpadding="0" cellspacing="0" color="@bodyColor" />
+            <mj-social-element padding="4px 8px" background-color="@Skin.TextColourHex" />
+            <mj-table padding="24px 0 16px 0" cellpadding="0" cellspacing="0" color="@Skin.TextColourHex" />
             <mj-all font-family="@fontFamilyBase" />
         </mj-attributes>
         <mj-style>
@@ -39,7 +40,7 @@
                 }
             }
             a {
-                color: @primary;
+                color: @Skin.PrimaryColourHex;
                 text-decoration: underline;
             }
             a:hover {
@@ -60,16 +61,11 @@
             }
         </mj-style>
     </mj-head>
-    <mj-body width="660px" background-color="@bodyBg" css-class="body-wrap">
-        <mj-wrapper border="4px solid @primary" padding="0 32px" background-color="#ffffff">
+    <mj-body width="660px" background-color="@Skin.BackgroundColourHex" css-class="body-wrap">
+        <mj-wrapper border="4px solid @Skin.PrimaryColourHex" padding="0 32px" background-color="#ffffff">
             <mj-section padding-top="42px">
                 <mj-column>
-                    <mj-image padding="0"
-                              width="94px"
-                              src="images/exeter-club-crest.png"
-                              srcset="images/exeter-club-crest.png 94w, images/exeter-club-crest@2x.png 188w"
-                              alt="Exeter City FC"
-                    />
+                    @await MjAssetImgAsync("club_crest_slot", 188, 188, new { padding="0", alt="Hinckley LRFC", width="94px" })
                 </mj-column>
             </mj-section>
 
@@ -77,26 +73,27 @@
                 <mj-column>
                     <mj-text  align="center"
                               font-size="32px"
-                              font-weight="700"
+                              font-weight="@Skin.HeadingsFontWeight"
                     >
-                        Hi Demo Customer
+                        %=notification_greeting=%
+                        @Model.Recipient.Name,
                     </mj-text>
 
                     <mj-text align="center"
                              font-size="16px"
-                             font-weight="500"
+                             font-weight="@Skin.ButtonFontWeight"
                     >
                         Your order number is <u>DEMO ORDER1</u>
                     </mj-text>
                     <mj-text align="center"
                                        font-size="14px"
-                                       font-weight="400"
+                                       font-weight="@Skin.BaseFontWeight"
                 >
                     Please quote this in any future correspondence regarding this booking.
                 </mj-text>
                     <mj-text align="center"
                              font-size="16px"
-                             font-weight="400"
+                             font-weight="@Skin.BaseFontWeight"
                     >
                         Here are the details of an order made on your account on Monday, 9 May 2050 16:00.
                     </mj-text>
@@ -105,29 +102,29 @@
             <mj-section padding="0">
             <mj-column border="1px solid @lightBorderSubtle" padding="0 21px" css-class="table-shadow">
                 <mj-table>
-                    <tr style="background-color:@primary;color:@primaryContrast;text-align:left;padding:15px 0;">
+                    <tr style="background-color:@Skin.PrimaryColourHex;color:@primaryContrast;text-align:left;padding:15px 0;">
                         <th style="padding: 12px;line-height:1.2" colspan="3">
-                            <h3 style="font-weight:@headingsFontWeight;margin:0;font-size:16px">Marine FC Season Ticket 2025/26</h3>
-                            <p style="font-weight:@fontWeightBase;margin:0;font-size:12px">Thursday September 2025</p>
+                            <h3 style="font-weight:@Skin.HeadingsFontWeight;margin:0;font-size:16px">Marine FC Season Ticket 2025/26</h3>
+                            <p style="font-weight:@Skin.BaseFontWeight;margin:0;font-size:12px">Thursday September 2025</p>
                         </th>
                     </tr>
                     <tr>
                         <td style="padding:12px 6px 0 0;font-size:12px;line-height:1.4;vertical-align:top;">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
-                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:@headingsFontWeight;display:block;">Under 14</strong>
+                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:@Skin.HeadingsFontWeight;display:block;">Under 14</strong>
                             Ian Greaves Lower</td>
                         <td style="padding:12px 0 0 6px;font-size:16px;line-height:1.2;text-align:right;vertical-align:top;">£50.00
                             <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee(s)</span></td>
                     </tr>
                     <tr>
                         <td style="padding:12px 6px 0 0;font-size:12px;line-height:1.4;vertical-align:top;">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
-                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:@headingsFontWeight;display:block;">Adult <span style="font-weight:@fontWeightBase;border-radius:@borderRadius;font-size:9px;background-color:@ctaBgSubtle;padding:2px 7px;white-space:nowrap;">Arthur Benton | MTFC0033600</span></strong>
+                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:@Skin.HeadingsFontWeight;display:block;">Adult <span style="font-weight:@Skin.BaseFontWeight;border-radius:@Skin.BorderRadius;font-size:9px;background-color:@ctaBgSubtle;padding:2px 7px;white-space:nowrap;">Arthur Benton | MTFC0033600</span></strong>
                             Ian Greaves Lower</td>
                         <td style="padding:12px 0 0 6px;font-size:16px;line-height:1.2;text-align:right;vertical-align:top;">£50.00
                             <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee(s)</span></td>
                     </tr>
                     <tr>
                         <td style="padding:12px 6px 0 0;font-size:12px;line-height:1.4;vertical-align:top;">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
-                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:@headingsFontWeight;display:block;">Under 14</strong>
+                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:@Skin.HeadingsFontWeight;display:block;">Under 14</strong>
                             Ian Greaves Lower</td>
                         <td style="padding:12px 0 0 6px;font-size:16px;line-height:1.2;text-align:right;vertical-align:top;">£50.00
                             <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee(s)</span></td>
@@ -135,11 +132,11 @@
                 </mj-table>
                 <mj-table css-class="info-box" font-size="12px" padding="12px">
                     <tr><td style="padding:2px 8px 0 0;vertical-align: top;">
-                        <img alt="i" src="images/icons/Info.png" width="16" height="16" srcset="images/icons/Info.png 16w, images/icons/Info@2x.png 32w" style="display:block;vertical-align:top;background-color:@bodyColor;width:16px;height:16px;" />
+                        @await MjAssetImgAsync("info_icon_slot", 32, 32, new { padding="0", alt="Info", width="16px", height="16", style="display:block;vertical-align:top;background-color:@Skin.TextColourHex;width:16px;height:16px;" })
                     </td>
                         <td style="vertical-align: top;">
                             <mj-text>
-                                <div style="line-height: 1.333;font-weight:@fontWeightBase">
+                                <div style="line-height: 1.333;font-weight:@Skin.BaseFontWeight">
                                     Thank you for purchasing a Marine FC season ticket for the 2025/26 season.
                                     Marine FC season tickets are only valid for National League North home league games.
                                     All supporters must adhere to the ground regulations of Marine FC which can be found on <a href="https://www.marinefc.com/" target="_blank">www.marinefc.com</a>
@@ -148,23 +145,23 @@
                         </td></tr>
                 </mj-table>
                 <mj-table>
-                    <tr style="background-color:@primary;color:@primaryContrast;text-align:left;padding:15px 0;">
+                    <tr style="background-color:@Skin.PrimaryColourHex;color:@primaryContrast;text-align:left;padding:15px 0;">
                         <th style="padding: 12px;line-height:1.2" colspan="3">
-                            <h3 style="font-weight:@headingsFontWeight;margin:0;font-size:16px">Christmas Derby</h3>
-                            <p style="font-weight:@fontWeightBase;margin:0;font-size:12px">Monday 25 December 2025 12:00</p>
+                            <h3 style="font-weight:@Skin.HeadingsFontWeight;margin:0;font-size:16px">Christmas Derby</h3>
+                            <p style="font-weight:@Skin.BaseFontWeight;margin:0;font-size:12px">Monday 25 December 2025 12:00</p>
                         </th>
                     </tr>
 
                     <tr>
                         <td style="padding:12px 6px 0 0;font-size:12px;width:50%;line-height:1.4;vertical-align:top;">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
-                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:@headingsFontWeight;display:block;">Under 14</strong>
+                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:@Skin.HeadingsFontWeight;display:block;">Under 14</strong>
                             Ian Greaves Lower</td>
                         <td style="padding:12px 0 0 6px;font-size:16px;line-height:1.2;text-align:right;vertical-align:top;">£50.00
                             <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee(s)</span></td>
                     </tr>
                     <tr>
                         <td style="padding:12px 6px 0 0;font-size:12px;width:50%;line-height:1.4;vertical-align:top;">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
-                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:@headingsFontWeight;display:block;">Adult <span style="font-weight:@fontWeightBase;border-radius:@borderRadius;font-size:9px;background-color:@ctaBgSubtle;padding:2px 7px;white-space:nowrap;">Arthur Benton | MTFC0033600</span></strong>
+                        <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:@Skin.HeadingsFontWeight;display:block;">Adult <span style="font-weight:@Skin.BaseFontWeight;border-radius:@Skin.BorderRadius;font-size:9px;background-color:@ctaBgSubtle;padding:2px 7px;white-space:nowrap;">Arthur Benton | MTFC0033600</span></strong>
                             Ian Greaves Lower</td>
                         <td style="padding:12px 0 0 6px;font-size:16px;line-height:1.2;text-align:right;vertical-align:top;">£50.00
                             <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee(s)</span></td>
@@ -172,9 +169,9 @@
                 </mj-table>
 
                 <mj-table>
-                    <tr style="background-color:@primary;color:@primaryContrast;text-align:left;padding:15px 0;">
+                    <tr style="background-color:@Skin.PrimaryColourHex;color:@primaryContrast;text-align:left;padding:15px 0;">
                         <th style="padding: 12px;line-height:1.2" colspan="3">
-                            <h3 style="font-weight:@headingsFontWeight;margin:0;font-size:16px">Merchandise</h3>
+                            <h3 style="font-weight:@Skin.HeadingsFontWeight;margin:0;font-size:16px">Merchandise</h3>
                         </th>
                     </tr>
                     <tr>
@@ -189,10 +186,10 @@
                     </tr>
                 </mj-table>
                 <mj-table>
-                    <tr style="">
-                        <th style="border-top:2px solid @lightBorderSubtle;padding:16px 6px 16px 0;text-align: left;font-size:16px;font-weight:@headingsFontWeight">Subtotal</th>
-                        <th style="border-top:2px solid @lightBorderSubtle;padding:16px 6px;text-align: left;font-size:16px;font-weight:@headingsFontWeight">6 item[s]</th>
-                        <th style="border-top:2px solid @lightBorderSubtle;padding:16px 0 16px 6px;text-align:right;font-size:16px;font-weight:@headingsFontWeight">£300.00</th>
+                    <tr>
+                        <th style="border-top:2px solid @lightBorderSubtle;padding:16px 6px 16px 0;text-align: left;font-size:16px;font-weight:@Skin.HeadingsFontWeight">Subtotal</th>
+                        <th style="border-top:2px solid @lightBorderSubtle;padding:16px 6px;text-align: left;font-size:16px;font-weight:@Skin.HeadingsFontWeight">6 item[s]</th>
+                        <th style="border-top:2px solid @lightBorderSubtle;padding:16px 0 16px 6px;text-align:right;font-size:16px;font-weight:@Skin.HeadingsFontWeight">£300.00</th>
                     </tr>
                     <tr>
                         <td colspan="3" style="border-bottom:2px solid @lightBorderSubtle;padding:0 0 16px 0;text-align: left;font-size:12px">
@@ -202,29 +199,29 @@
                             </mj-text>
                         </td>
                     </tr>
-                    <tr style="">
-                        <td style="border-top:2px solid @lightBorderSubtle;padding:16px 6px 8px 0;text-align: left;font-size:16px;font-weight:@fontWeightBase" colspan="2">Delivery fee</td>
-                        <td style="border-top:2px solid @lightBorderSubtle;padding:16px 0 8px 6px;text-align:right;font-size:16px;font-weight:@headingsFontWeight">£19.99</td>
+                    <tr>
+                        <td style="border-top:2px solid @lightBorderSubtle;padding:16px 6px 8px 0;text-align: left;font-size:16px;font-weight:@Skin.BaseFontWeight" colspan="2">Delivery fee</td>
+                        <td style="border-top:2px solid @lightBorderSubtle;padding:16px 0 8px 6px;text-align:right;font-size:16px;font-weight:@Skin.HeadingsFontWeight">£19.99</td>
                     </tr>
                     <tr>
-                        <td style="padding:8px 6px 16px 0;text-align: left;font-size:16px;font-weight:@fontWeightBase" colspan="2">Commissions</td>
-                        <td style="padding:8px 0 16px 6px;text-align:right;font-size:16px;font-weight:@headingsFontWeight">£12.00</td>
-                    </tr>
-                    <tr style="">
-                        <td style="border-top:2px solid @lightBorderSubtle;padding:16px 6px 16px 0;text-align: left;font-size:16px;font-weight:@fontWeightBase" colspan="2">Group Discount</td>
-                        <td style="border-top:2px solid @lightBorderSubtle;padding:16px 0 16px 6px;text-align:right;font-size:16px;font-weight:@headingsFontWeight">-£5.00</td>
-                    </tr>
-                    <tr style="">
-                        <td style="border-top:2px solid @darkBorderSubtle;padding:21px 6px 21px 0;text-align: left;font-size:24px;font-weight:@headingsFontWeight" colspan="2">Order Total</td>
-                        <td style="border-top:2px solid @darkBorderSubtle;padding:21px 0 21px 6px;text-align:right;font-size:24px;font-weight:@headingsFontWeight">£196.99</td>
-                    </tr>
-                    <tr style="">
-                        <td style="border-top:2px solid @darkBorderSubtle;padding:16px 6px 0 0;text-align: left;font-size:12px;font-weight:@fontWeightBase" colspan="2">Net Total</td>
-                        <td style="border-top:2px solid @darkBorderSubtle;padding:16px 0 0 6px;text-align:right;font-size:12px;font-weight:@fontWeightBase">£112.49</td>
+                        <td style="padding:8px 6px 16px 0;text-align: left;font-size:16px;font-weight:@Skin.BaseFontWeight" colspan="2">Commissions</td>
+                        <td style="padding:8px 0 16px 6px;text-align:right;font-size:16px;font-weight:@Skin.HeadingsFontWeight">£12.00</td>
                     </tr>
                     <tr>
-                        <td style="padding:0 6px 0 0;text-align: left;font-size:12px;font-weight:@fontWeightBase" colspan="2">VAT 20%</td>
-                        <td style="padding:0 0 0 6px;text-align:right;font-size:12px;font-weight:@fontWeightBase">£22.50</td>
+                        <td style="border-top:2px solid @lightBorderSubtle;padding:16px 6px 16px 0;text-align: left;font-size:16px;font-weight:@Skin.BaseFontWeight" colspan="2">Group Discount</td>
+                        <td style="border-top:2px solid @lightBorderSubtle;padding:16px 0 16px 6px;text-align:right;font-size:16px;font-weight:@Skin.HeadingsFontWeight">-£5.00</td>
+                    </tr>
+                    <tr>
+                        <td style="border-top:2px solid @darkBorderSubtle;padding:21px 6px 21px 0;text-align: left;font-size:24px;font-weight:@Skin.HeadingsFontWeight" colspan="2">Order Total</td>
+                        <td style="border-top:2px solid @darkBorderSubtle;padding:21px 0 21px 6px;text-align:right;font-size:24px;font-weight:@Skin.HeadingsFontWeight">£196.99</td>
+                    </tr>
+                    <tr>
+                        <td style="border-top:2px solid @darkBorderSubtle;padding:16px 6px 0 0;text-align: left;font-size:12px;font-weight:@Skin.BaseFontWeight" colspan="2">Net Total</td>
+                        <td style="border-top:2px solid @darkBorderSubtle;padding:16px 0 0 6px;text-align:right;font-size:12px;font-weight:@Skin.BaseFontWeight">£112.49</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0 6px 0 0;text-align: left;font-size:12px;font-weight:@Skin.BaseFontWeight" colspan="2">VAT 20%</td>
+                        <td style="padding:0 0 0 6px;text-align:right;font-size:12px;font-weight:@Skin.BaseFontWeight">£22.50</td>
                     </tr>
                 </mj-table>
             </mj-column>
@@ -232,11 +229,11 @@
             <mj-section padding="0">
                 <mj-column>
                     <mj-text font-size="16px" align="center" padding="24px 0">
-                        Paid by: <strong style="font-weight:@headingsFontWeight">Credit Card</strong>.<br/>
+                        Paid by: <strong style="font-weight:@Skin.HeadingsFontWeight">Credit Card</strong>.<br/>
                         Some final sign off text can be added here!
                     </mj-text>
 
-                    <mj-text font-size="12px" align="center" padding="0 0 24px 0" font-weight="@fontWeightBase" color="@darkBorderSubtle">
+                    <mj-text font-size="12px" align="center" padding="0 0 24px 0" font-weight="@Skin.BaseFontWeight" color="@darkBorderSubtle">
                         Demo Organisation | 1A Example Street, Example Town, Example, EX1 1AA, United Kingdom. <br />
                         Vat Number: GB123456789 | Company Registration Number: 01234567
                     </mj-text>
@@ -245,6 +242,13 @@
             <!-- Icons -->
             <mj-section>
                 <mj-column>
+                    <mj-social icon-size="40px" mode="horizontal" border-radius="0" container-background-color="#FFFFFF" >
+                        <!-- we can customise the icons with src attribute -->
+                        @await MjAssetSocialElementAsync("facebook-noshare", "https://facebook.com/", "fb_icon_slot", 80, 80, new { alt="Facebook" })
+                        @await MjAssetSocialElementAsync("x-noshare", "https://x.com/", "x_icon_slot", 80, 80, new { alt="X" })
+                        @await MjAssetSocialElementAsync("instagram", "https://instagram.com/", "insta_icon_slot", 80, 80, new { alt="Instagram" })
+                        @await MjAssetSocialElementAsync("youtube", "https://youtube.com/", "yt_icon_slot", 80, 80, new { alt="YouTube" })
+                    </mj-social>
                     <mj-social icon-size="40px" mode="horizontal" border-radius="0" container-background-color="#FFFFFF" >
                         <!-- we can customise the icons with src attribute -->
                         <mj-social-element
@@ -280,42 +284,33 @@
 
             <mj-section>
                 <mj-column>
-                    <mj-text align="center" font-size="18px" font-weight="400">
+                    <mj-text align="center" font-size="18px" font-weight="@Skin.BaseFontWeight">
                         <ul style="list-style:none;padding:0">
-                            <li style="margin:8px 0;"><a href="#" style="color:@bodyColor; text-decoration: none;"><img alt="" src="images/icons/Phone.png" width="21" height="21" srcset="images/icons/Phone.png 21w, images/icons/Phone@2x.png 42w" style="display:inline-block;margin-right:4px;vertical-align:middle;background-color:@bodyColor;" />  +44(0)123 123 1234</a></li>
-                            <li style="margin:8px 0;"><a href="#" style="color:@bodyColor; text-decoration: none;"><img alt="" src="images/icons/Email.png" width="21" height="21" srcset="images/icons/Email.png 21w, images/icons/Email@2x.png 42w" style="display:inline-block;margin-right:4px;vertical-align:middle;background-color:@bodyColor;" />  test@demo.com</a></li>
+                            <li style="margin:8px 0;"><a href="#" style="color:@Skin.TextColourHex; text-decoration: none;">
+                                @await MjAssetImgAsync("phone_icon_slot", 42, 42, new { padding="0", alt="Phone", width="21px", height="21", style="display:inline-block;margin-right:4px;vertical-align:middle;background-color:@Skin.TextColourHex;width:21px;height:21px;" }) +44(0)123 123 1234</a>
+                            </li>
+                            <li style="margin:8px 0;"><a href="#" style="color:@Skin.TextColourHex; text-decoration: none;">
+                                @await MjAssetImgAsync("email_icon_slot", 42, 42, new { padding="0", alt="Email", width="21px", height="21", style="display:inline-block;margin-right:4px;vertical-align:middle;background-color:@Skin.TextColourHex;width:21px;height:21px;" }) test@demo.com</a>
+                            </li>
                         </ul>
                     </mj-text>
                 </mj-column>
             </mj-section>
-
             <mj-section>
                 <mj-column vertical-align="middle">
-                    <mj-image padding="0" width="112px"
-                              src="images/Maskgroup.png"
-                              srcset="images/Maskgroup.png 112w, images/Maskgroup@2x.png 224w"
-                              alt="HEL"
-                    />
+                    @await MjAssetImgAsync("partner_logo_slot_1", 224, null, new { padding="0", alt="Hel", width="112px" })
                 </mj-column>
                 <mj-column vertical-align="middle">
-                    <mj-image padding="0" width="99px"
-                              src="images/image8.png"
-                              srcset="images/image8.png 99w, images/image8@2x.png 198w"
-                              alt="HEL"
-                    />
+                    @await MjAssetImgAsync("partner_logo_slot_2", 224, null, new { padding="0", alt="Castore", width="112px" })
                 </mj-column>
                 <mj-column vertical-align="middle">
-                    <mj-image padding="0" width="131px"
-                              src="images/Group125.png"
-                              srcset="images/Group125.png 131w, images/Group125@2x.png 262w"
-                              alt="HEL"
-                    />
+                    @await MjAssetImgAsync("partner_logo_slot_3", 224, null, new { padding="0", alt="OCL Solicitors", width="112px" })
                 </mj-column>
             </mj-section>
             <mj-section>
                 <mj-column>
                     <mj-text align="center" font-size="16px" font-weight="400">
-                        <a href="@channelBaseUrl/termsandconditions" target="_blank" style="color:@bodyColor; text-decoration: none;white-space: nowrap;">Terms &amp; Conditions</a> <span style="padding: 0 8px">|</span> <a href="@channelBaseUrl/privacypolicy" target="_blank" style="color:@bodyColor;text-decoration:none;white-space: nowrap;">Privacy Policy</a>
+                        <a href="@channelBaseUrl/termsandconditions" target="_blank" style="color:@Skin.TextColourHex; text-decoration: none;white-space: nowrap;">Terms &amp; Conditions</a> <span style="padding: 0 8px">|</span> <a href="@channelBaseUrl/privacypolicy" target="_blank" style="color:@Skin.TextColourHex;text-decoration:none;white-space: nowrap;">Privacy Policy</a>
                     </mj-text>
                 </mj-column>
             </mj-section>

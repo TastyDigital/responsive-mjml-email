@@ -54,7 +54,16 @@ const htmlOutput = mjml2html(`
             />
           </mj-column>
         </mj-section>
-
+        <mj-section padding="0">
+          <mj-column>
+            <mj-image padding="0"
+                      width="660px"
+                      src="images/FeaturePic.png"
+                      srcset="images/FeaturePic.png 660w, images/FeaturePic@2x.png 1320w"
+                      alt="Hero Photo"
+            />
+          </mj-column>
+        </mj-section>
         <mj-section>
           <mj-column>
             <mj-text  align="center"
