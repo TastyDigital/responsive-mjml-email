@@ -1,0 +1,184 @@
+import mjml2html from 'mjml'
+
+/*
+  Compile an mjml string
+*/
+const htmlOutput = mjml2html(`
+  <mjml>
+    <mj-head>
+      <mj-title>Kaizen Ticketing Information</mj-title>
+      <mj-preview>Important information about your account</mj-preview>
+      <mj-font name="Mohave" href="https://fonts.googleapis.com/css2?family=Mohave:ital,wght@0,400;0,500;0,700;1,400&amp;display=swap" />
+      <mj-breakpoint width="460px" />
+      <mj-attributes>
+        <mj-text color="var(--body-color)" line-height="1.4" />
+        <mj-button background-color="var(--secondary)" border-radius="16px" font-size="20px" font-weight="500" width="100%" />
+        <mj-section padding="16px 10%" />
+        <mj-social-element padding="4px 8px" background-color="var(--body-color)" />
+        <mj-all font-family="Mohave, Arial, sans-serif" />
+      </mj-attributes>
+      <mj-style>
+        .body-wrap {
+          --primary: #113D72;
+          --secondary: #B90A25;
+          --body-color: #091A2E;
+          --body-bg: #E7E7E7;
+          --cta-bg-subtle: #f8f9fa;
+          --light-border-subtle: #e9ecef;
+          --dark-border-subtle: #adb5bd;
+        }
+        @media only screen and (min-width:660px) {
+          .body-wrap {
+            padding: 24px 0;
+          }
+        }
+        .box-shadow a {
+          display:block !important;
+          box-shadow: 0 3px 5px 0 rgba(0 0 0 / 33%);
+        }
+        a {
+          color: var(--primary);
+          text-decoration: underline;
+        }
+        a:hover {
+          text-decoration: none;
+        }
+        .ball-divider {
+          display:block;
+          margin:0 auto;
+          text-align: center;
+          width: 100%;
+          max-width: 232px;
+        }
+      </mj-style>
+    </mj-head>
+    <mj-body width="660px" background-color="var(--body-bg)" css-class="body-wrap">
+      <mj-wrapper border="4px solid var(--primary)" padding="0" background-color="#ffffff">
+        <mj-section padding-top="42px">
+          <mj-column>
+            <mj-image padding="0"
+                      width="94px"
+                      src="images/exeter-club-crest.png"
+                      srcset="images/exeter-club-crest.png 94w, images/exeter-club-crest@2x.png 188w"
+                      alt="Exeter City FC"
+            />
+          </mj-column>
+        </mj-section>
+        <mj-section>
+          <mj-column>
+            <mj-text  align="center"
+                      font-size="32px"
+                      font-weight="700"
+            >
+              Hi Demo Customer
+              </mj-text>
+
+            <mj-text align="center"
+                     font-size="16px"
+                     font-weight="500"
+            >
+              Torquay United would like to make supporters aware that the Plainmoor Pass is now ready for collection, with postal cards to be sent in the next few days.
+              </mj-text>
+
+              <!-- mj-divider border-width="2px" border-style="dashed" border-color="var(--dark-border-subtle)" padding="36px 72px" / -->
+            <mj-image padding="36px 0"
+                      width="232px"
+                      height="32px"
+                      src="images/ball-divider.png"
+                      srcset="images/ball-divider.png 232w, images/ball-divider@2x.png 464w"
+                      alt="----- Divider -----"
+                      align="center"
+                      fluid-on-mobile="true"
+                      css-class="ball-divider"
+            />
+
+          </mj-column>
+        </mj-section>
+
+        <!-- Icons -->
+        <mj-section>
+          <mj-column>
+            <mj-social icon-size="40px" mode="horizontal" border-radius="0" container-background-color="#FFFFFF" >
+              <!-- we can customise the icons with src attribute -->
+              <mj-social-element
+                      name="facebook-noshare"
+                      href="https://facebook.com/"
+                      src="images/Facebook.png"
+                      srcset="images/Facebook.png 40w, images/Facebook@2x.png 80w"
+                      alt="Facebook"
+              > </mj-social-element>
+              <mj-social-element
+                      name="x-noshare"
+                      href="https://x.com/"
+                      src="images/TwitterX.png"
+                      srcset="images/TwitterX.png 40w, images/TwitterX@2x.png 80w"
+                      alt="Twitter X"
+              > </mj-social-element>
+              <mj-social-element
+                      name="instagram"
+                      href="https://instagram.com/"
+                      src="images/Instagram.png"
+                      srcset="images/Instagram.png 40w, images/Instagram@2x.png 80w"
+                      alt="Instagram"
+              > </mj-social-element>
+              <mj-social-element
+                      name="youtube"
+                      href="https://youtube.com/"
+                      src="images/YouTube.png"
+                      srcset="images/YouTube.png 40w, images/YouTube@2x.png 80w"
+                      alt="YouTube"> </mj-social-element>
+            </mj-social>
+          </mj-column>
+        </mj-section>
+
+        <mj-section>
+          <mj-column>
+            <mj-text align="center" font-size="18px" font-weight="400">
+              <ul style="list-style:none;padding:0">
+                <li style="margin:8px 0;"><a href="#" style="color:var(--body-color); text-decoration: none;"><img alt="" src="images/icons/Phone.png" width="21" height="21" srcset="images/icons/Phone.png 21w, images/icons/Phone@2x.png 42w" style="display:inline-block;margin-right:4px;vertical-align:middle;background-color:var(--body-color);" />  +44(0)123 123 1234</a></li>
+                <li style="margin:8px 0;"><a href="#" style="color:var(--body-color); text-decoration: none;"><img alt="" src="images/icons/Email.png" width="21" height="21" srcset="images/icons/Email.png 21w, images/icons/Email@2x.png 42w" style="display:inline-block;margin-right:4px;vertical-align:middle;background-color:var(--body-color);" />  test@demo.com</a></li>
+               </ul>
+            </mj-text>
+          </mj-column>
+        </mj-section>
+
+        <mj-section>
+          <mj-column vertical-align="middle">
+            <mj-image padding="0" width="112px"
+                      src="images/Maskgroup.png"
+                      srcset="images/Maskgroup.png 112w, images/Maskgroup@2x.png 224w"
+                      alt="HEL"
+            />
+          </mj-column>
+          <mj-column vertical-align="middle">
+            <mj-image padding="0" width="99px"
+                      src="images/image8.png"
+                      srcset="images/image8.png 99w, images/image8@2x.png 198w"
+                      alt="HEL"
+            />
+          </mj-column>
+          <mj-column vertical-align="middle">
+            <mj-image padding="0" width="131px"
+                      src="images/Group125.png"
+                      srcset="images/Group125.png 131w, images/Group125@2x.png 262w"
+                      alt="HEL"
+            />
+          </mj-column>
+        </mj-section>
+        <mj-section>
+          <mj-column>
+            <mj-text align="center" font-size="16px" font-weight="400">
+              <a href="#" style="color:var(--body-color); text-decoration: none;white-space: nowrap;">Terms &amp; Conditions</a> <span style="padding: 0 8px">|</span> <a href="#" style="color:var(--body-color);text-decoration:none;white-space: nowrap;">Privacy Policy</a>
+            </mj-text>
+          </mj-column>
+        </mj-section>
+      </mj-wrapper>
+    </mj-body>
+  </mjml>
+`, options)
+
+
+/*
+  Print the responsive HTML generated and MJML errors if any
+*/
+console.log(htmlOutput)
