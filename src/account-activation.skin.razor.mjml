@@ -76,82 +76,52 @@
 
                         </mj-text>
                         <mj-button width="100%" padding-top="44px" href="@Model.ActivationUrl" css-class="box-shadow">
-                            @await MjAssetImgAsync("test_user_slot", 42, 42, new { width="21", height="21", padding="0", alt="", style="display:inline-block;margin-right:4px;vertical-align:middle;" })
+                            @await AssetImgAsync("test_user_slot", 42, 42, new { width="21", height="21", padding="0", alt="", style="display:inline-block;margin-right:4px;vertical-align:middle;" })
                             <span style="display: inline-block;vertical-align: middle">%=notification_activateaccount_button=%</span></mj-button>
                     </mj-column>
                 </mj-section>
 
                 <!-- Icons -->
-                <mj-section>
+                <mj-section padding="16px 0">
                     <mj-column>
                         <mj-social icon-size="40px" mode="horizontal" border-radius="0" container-background-color="#FFFFFF" >
                             <!-- we can customise the icons with src attribute -->
-                            @await MjAssetSocialElementAsync("facebook-noshare", "https://facebook.com/", "fb_icon_slot", 80, 80, new { alt="Facebook" })
-                            @await MjAssetSocialElementAsync("x-noshare", "https://x.com/", "x_icon_slot", 80, 80, new { alt="X" })
-                            @await MjAssetSocialElementAsync("instagram", "https://instagram.com/", "insta_icon_slot", 80, 80, new { alt="Instagram" })
-                            @await MjAssetSocialElementAsync("youtube", "https://youtube.com/", "yt_icon_slot", 80, 80, new { alt="YouTube" })
-                        </mj-social>
-                        <mj-social icon-size="40px" mode="horizontal" border-radius="0" container-background-color="#FFFFFF" >
-                            <mj-social-element
-                                    name="facebook-noshare"
-                                    href="https://facebook.com/"
-                                    src="images/Facebook.png"
-                                    srcset="images/Facebook.png 40w, images/Facebook@2x.png 80w"
-                                    alt="Facebook"
-                            > </mj-social-element>
-                            <mj-social-element
-                                    name="x-noshare"
-                                    href="https://x.com/"
-                                    src="images/TwitterX.png"
-                                    srcset="images/TwitterX.png 40w, images/TwitterX@2x.png 80w"
-                                    alt="Twitter X"
-                            > </mj-social-element>
-                            <mj-social-element
-                                    name="instagram"
-                                    href="https://instagram.com/"
-                                    src="images/Instagram.png"
-                                    srcset="images/Instagram.png 40w, images/Instagram@2x.png 80w"
-                                    alt="Instagram"
-                            > </mj-social-element>
-                            <mj-social-element
-                                    name="youtube"
-                                    href="https://youtube.com/"
-                                    src="images/YouTube.png"
-                                    srcset="images/YouTube.png 40w, images/YouTube@2x.png 80w"
-                                    alt="YouTube"> </mj-social-element>
+                            @await MjAssetSocialElementAsync("facebook-noshare", "https://facebook.com/", "fb_icon_slot", 80, 80, new { alt="Facebook", padding="4px 8px", backgroundColor=Skin.TextColourHex })
+                            @await MjAssetSocialElementAsync("x-noshare", "https://x.com/", "x_icon_slot", 80, 80, new { alt="X", padding="4px 8px", backgroundColor=Skin.TextColourHex })
+                            @await MjAssetSocialElementAsync("instagram", "https://instagram.com/", "insta_icon_slot", 80, 80, new { alt="Instagram", padding="4px 8px", backgroundColor=Skin.TextColourHex })
+                            @await MjAssetSocialElementAsync("youtube", "https://youtube.com/", "yt_icon_slot", 80, 80, new { alt="YouTube", padding="4px 8px", backgroundColor=Skin.TextColourHex })
                         </mj-social>
                     </mj-column>
                 </mj-section>
 
-                <mj-section>
+                <mj-section padding="16px 0">
                     <mj-column>
                         <mj-text align="center" font-size="18px" font-weight="@Skin.BaseFontWeight">
                             <ul style="list-style:none;padding:0">
                                 <li style="margin:8px 0;"><a href="#" style="color:@Skin.TextColourHex; text-decoration: none;">
-                                    @await MjAssetImgAsync("phone_icon_slot", 42, 42, new { padding="0", alt="Phone", width="21px", height="21", style="display:inline-block;margin-right:4px;vertical-align:middle;background-color:@Skin.TextColourHex;21px;height:21px;" }) +44(0)123 123 1234</a>
+                                    @await AssetImgAsync("phone_icon_slot", 42, 42, new { padding="0", alt="Phone", width="21px", height="21", style=$"display:inline-block;margin-right:4px;vertical-align:middle;background-color:{Skin.TextColourHex};width:21px;height:21px;" }) +44(0)123 123 1234</a>
                                 </li>
                                 <li style="margin:8px 0;"><a href="#" style="color:@Skin.TextColourHex; text-decoration: none;">
-                                    @await MjAssetImgAsync("email_icon_slot", 42, 42, new { padding="0", alt="Email", width="21px", height="21", style="display:inline-block;margin-right:4px;vertical-align:middle;background-color:@Skin.TextColourHex;21px;height:21px;" }) test@demo.com</a>
+                                    @await AssetImgAsync("email_icon_slot", 42, 42, new { padding="0", alt="Email", width="21px", height="21", style=$"display:inline-block;margin-right:4px;vertical-align:middle;background-color:{Skin.TextColourHex};width:21px;height:21px;" }) test@demo.com</a>
                                 </li>
                             </ul>
                         </mj-text>
                     </mj-column>
                 </mj-section>
-
-                <mj-section>
+                <mj-section padding="8px 5%">
                     <mj-column vertical-align="middle">
-                        @await MjAssetImgAsync("partner_logo_slot_1", 224, null, new { padding="0", alt="Hel", width="112px" })
+                        @await MjAssetImgAsync("partner_logo_slot_1", 224, null, new { padding="8px", alt="Hel", width="112px" })
                     </mj-column>
                     <mj-column vertical-align="middle">
-                        @await MjAssetImgAsync("partner_logo_slot_2", 224, null, new { padding="0", alt="Castore", width="112px" })
+                        @await MjAssetImgAsync("partner_logo_slot_2", 224, null, new { padding="8px", alt="Castore", width="112px" })
                     </mj-column>
                     <mj-column vertical-align="middle">
-                        @await MjAssetImgAsync("partner_logo_slot_3", 224, null, new { padding="0", alt="OCL Solicitors", width="112px" })
+                        @await MjAssetImgAsync("partner_logo_slot_3", 224, null, new { padding="8px", alt="OCL Solicitors", width="112px" })
                     </mj-column>
                 </mj-section>
-                <mj-section>
+                <mj-section padding="16px 0">
                     <mj-column>
-                        <mj-text align="center" font-size="16px" font-weight="@Skin.BaseFontWeight">
+                        <mj-text align="center" font-size="16px" font-weight="400">
                             <a href="@channelBaseUrl/termsandconditions" target="_blank" style="color:@Skin.TextColourHex; text-decoration: none;white-space: nowrap;">Terms &amp; Conditions</a> <span style="padding: 0 8px">|</span> <a href="@channelBaseUrl/privacypolicy" target="_blank" style="color:@Skin.TextColourHex;text-decoration:none;white-space: nowrap;">Privacy Policy</a>
                         </mj-text>
                     </mj-column>
