@@ -38,6 +38,9 @@
                     .body-wrap {
                         padding: 24px 0;
                     }
+                    .assignment-badge {
+                        white-space:nowrap;
+                    }
                 }
                 a {
                     color: @Skin.PrimaryColourHex;
@@ -56,7 +59,6 @@
                 .info-box {
                     background-color: @ctaBgSubtle;
                     border: 1px solid @lightBorderSubtle;
-                    padding: 12px;
                     margin: 0 0 21px 0;
                 }
             </mj-style>
@@ -113,26 +115,26 @@
                                 <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:@Skin.HeadingsFontWeight;display:block;">Under 14</strong>
                                     Ian Greaves Lower</td>
                                 <td style="padding:12px 0 0 6px;font-size:16px;line-height:1.2;text-align:right;vertical-align:top;">£50.00
-                                    <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee(s)</span></td>
+                                    <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee</span></td>
                             </tr>
                             <tr>
                                 <td style="padding:12px 6px 0 0;font-size:12px;line-height:1.4;vertical-align:top;">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
-                                <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:@Skin.HeadingsFontWeight;display:block;">Adult <span style="font-weight:@Skin.BaseFontWeight;border-radius:@Skin.BorderRadius;font-size:9px;background-color:@ctaBgSubtle;padding:2px 7px;white-space:nowrap;">Arthur Benton | MTFC0033600</span></strong>
+                                <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:@Skin.HeadingsFontWeight;display:block;">Adult <span class="assignment-badge" style="font-weight:@Skin.BaseFontWeight;border-radius:@Skin.BorderRadius;font-size:9px;background-color:@ctaBgSubtle;padding:2px 7px;">Arthur Benton | MTFC0033600</span></strong>
                                     Ian Greaves Lower</td>
                                 <td style="padding:12px 0 0 6px;font-size:16px;line-height:1.2;text-align:right;vertical-align:top;">£50.00
-                                    <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee(s)</span></td>
+                                    <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee</span></td>
                             </tr>
                             <tr>
                                 <td style="padding:12px 6px 0 0;font-size:12px;line-height:1.4;vertical-align:top;">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
                                 <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:@Skin.HeadingsFontWeight;display:block;">Under 14</strong>
                                     Ian Greaves Lower</td>
                                 <td style="padding:12px 0 0 6px;font-size:16px;line-height:1.2;text-align:right;vertical-align:top;">£50.00
-                                    <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee(s)</span></td>
+                                    <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee</span></td>
                             </tr>
                         </mj-table>
-                        <mj-table css-class="info-box" font-size="12px" padding="12px">
+                        <mj-table css-class="info-box" font-size="12px" padding="12px 12px 12px 8px">
                             <tr><td style="padding:2px 8px 0 0;vertical-align: top;">
-                                @await AssetImgAsync("info_icon_slot", 32, 32, new { padding="0", alt="Info", width="16", height="16", style=$"display:block;background-color:{Skin.TextColourHex};width:16px;height:16px;" })
+                                @await AssetImgAsync("info_icon_slot", 32, 32, new { padding="0", alt="Info", width="16", height="16", style=$"display:block;background-color:{Skin.TextColourHex};width:16px;height:16px;margin-top:-3px" })
                             </td>
                                 <td style="vertical-align: top;">
                                     <mj-text>
@@ -157,14 +159,14 @@
                                 <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:@Skin.HeadingsFontWeight;display:block;">Under 14</strong>
                                     Ian Greaves Lower</td>
                                 <td style="padding:12px 0 0 6px;font-size:16px;line-height:1.2;text-align:right;vertical-align:top;">£50.00
-                                    <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee(s)</span></td>
+                                    <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee</span></td>
                             </tr>
                             <tr>
                                 <td style="padding:12px 6px 0 0;font-size:12px;width:50%;line-height:1.4;vertical-align:top;">Ian Greaves Lower - D | Row F | Seat 95 | #3593 | Turnstiles 20-22</td>
-                                <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:@Skin.HeadingsFontWeight;display:block;">Adult <span style="font-weight:@Skin.BaseFontWeight;border-radius:@Skin.BorderRadius;font-size:9px;background-color:@ctaBgSubtle;padding:2px 7px;white-space:nowrap;">Arthur Benton | MTFC0033600</span></strong>
+                                <td style="padding:12px 6px 0;font-size:12px;line-height:1.4;vertical-align:top;"><strong style="font-weight:@Skin.HeadingsFontWeight;display:block;">Adult <span class="assignment-badge" style="font-weight:@Skin.BaseFontWeight;border-radius:@Skin.BorderRadius;font-size:9px;background-color:@ctaBgSubtle;padding:2px 7px;">Arthur Benton | MTFC0033600</span></strong>
                                     Ian Greaves Lower</td>
                                 <td style="padding:12px 0 0 6px;font-size:16px;line-height:1.2;text-align:right;vertical-align:top;">£50.00
-                                    <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee(s)</span></td>
+                                    <span style="display:block;font-size:10px;white-space:nowrap;">+ £10.00 fee</span></td>
                             </tr>
                         </mj-table>
 
@@ -240,7 +242,7 @@
                     </mj-column>
                 </mj-section>
                 <!-- Icons -->
-                <mj-section>
+                <mj-section padding="16px 0">
                     <mj-column>
                         <mj-social icon-size="40px" mode="horizontal" border-radius="0" container-background-color="#FFFFFF" >
                             <!-- we can customise the icons with src attribute -->
@@ -252,7 +254,7 @@
                     </mj-column>
                 </mj-section>
 
-                <mj-section>
+                <mj-section padding="16px 0">
                     <mj-column>
                         <mj-text align="center" font-size="18px" font-weight="@Skin.BaseFontWeight">
                             <ul style="list-style:none;padding:0">
@@ -266,18 +268,18 @@
                         </mj-text>
                     </mj-column>
                 </mj-section>
-                <mj-section>
+                <mj-section padding="8px 0">
                     <mj-column vertical-align="middle">
-                        @await MjAssetImgAsync("partner_logo_slot_1", 224, null, new { padding="0", alt="Hel", width="112px" })
+                        @await MjAssetImgAsync("partner_logo_slot_1", 224, null, new { padding="8px", alt="Hel", width="112px" })
                     </mj-column>
                     <mj-column vertical-align="middle">
-                        @await MjAssetImgAsync("partner_logo_slot_2", 224, null, new { padding="0", alt="Castore", width="112px" })
+                        @await MjAssetImgAsync("partner_logo_slot_2", 224, null, new { padding="8px", alt="Castore", width="112px" })
                     </mj-column>
                     <mj-column vertical-align="middle">
-                        @await MjAssetImgAsync("partner_logo_slot_3", 224, null, new { padding="0", alt="OCL Solicitors", width="112px" })
+                        @await MjAssetImgAsync("partner_logo_slot_3", 224, null, new { padding="8px", alt="OCL Solicitors", width="112px" })
                     </mj-column>
                 </mj-section>
-                <mj-section>
+                <mj-section padding="16px 0">
                     <mj-column>
                         <mj-text align="center" font-size="16px" font-weight="400">
                             <a href="@channelBaseUrl/termsandconditions" target="_blank" style="color:@Skin.TextColourHex; text-decoration: none;white-space: nowrap;">Terms &amp; Conditions</a> <span style="padding: 0 8px">|</span> <a href="@channelBaseUrl/privacypolicy" target="_blank" style="color:@Skin.TextColourHex;text-decoration:none;white-space: nowrap;">Privacy Policy</a>
