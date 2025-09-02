@@ -206,8 +206,8 @@
                                 <td style="border-top:2px solid @lightBorderSubtle;padding:16px 0 8px 6px;text-align:right;font-size:16px;font-weight:@Skin.HeadingsFontWeight">£19.99</td>
                             </tr>
                             <tr>
-                                <td style="padding:8px 6px 16px 0;text-align: left;font-size:16px;font-weight:@Skin.BaseFontWeight" colspan="2">Commissions</td>
-                                <td style="padding:8px 0 16px 6px;text-align:right;font-size:16px;font-weight:@Skin.HeadingsFontWeight">£12.00</td>
+                                <td style="padding:16px 6px 8px 0;text-align: left;font-size:16px;font-weight:@Skin.BaseFontWeight" colspan="2">Commissions</td>
+                                <td style="padding:16px 0 8px 6px;text-align:right;font-size:16px;font-weight:@Skin.HeadingsFontWeight">£12.00</td>
                             </tr>
                             <tr>
                                 <td style="border-top:2px solid @lightBorderSubtle;padding:16px 6px 16px 0;text-align: left;font-size:16px;font-weight:@Skin.BaseFontWeight" colspan="2">Group Discount</td>
