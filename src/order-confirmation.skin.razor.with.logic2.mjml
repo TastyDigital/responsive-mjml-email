@@ -13,7 +13,7 @@
     string ctaBgSubtle = "#f8f9fa";
     string lightBorderSubtle = "#e9ecef";
     string darkBorderSubtle = "#adb5bd";
-    string fontFamilyBase = $"{Skin.FontFamilySansSerif}, Arial, sans-serif";
+    string fontFamilyBase = $"{@Skin.FontFamilySansSerif}, Arial, sans-serif";
     string channelBaseUrl = "https://mansfieldtownfc.ktckts.com";
 
     // Google font family must be URL-encoded
@@ -86,7 +86,7 @@
                             {
                             var ol = d.OrderLines[i];
                             bool outputHeaderRow = i == 0;
-
+                            bool outputTotalRows = i == d.OrderLines.Count - 1;
                             if (outputHeaderRow)
                             {
                             <tr style="background-color:@Skin.PrimaryColourHex;color:@primaryContrast;text-align:left;">
@@ -149,9 +149,6 @@
                             @* ORDERLINE END *@
                             }
                         </mj-table>
-                        @* DELIVERY END *@
-                        }
-
                         <mj-table css-class="info-box" font-size="12px" padding="12px 12px 12px 8px">
                             <tr>
                                 <td style="padding:2px 8px 0 0;vertical-align: top;">
@@ -167,7 +164,8 @@
                                 </td>
                             </tr>
                         </mj-table>
-
+                        @if(outputTotalRows)
+                        {
                         <mj-table>
                             <tr>
                                 <th style="border-top:2px solid @lightBorderSubtle;padding:16px 6px 16px 0;text-align: left;font-size:16px;font-weight:@Skin.HeadingsFontWeight">Subtotal</th>
@@ -247,6 +245,14 @@
                             }
                             }
                         </mj-table>
+                        }
+
+                        @* DELIVERY END *@
+                        }
+
+
+
+
 
                     </mj-column>
                 </mj-section>
