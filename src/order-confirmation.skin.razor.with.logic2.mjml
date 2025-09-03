@@ -77,16 +77,18 @@
 
                 <mj-section padding="0">
                     <mj-column border="1px solid @lightBorderSubtle" padding="0 16px" css-class="table-shadow">
-
-                        @foreach (var d in Model.Deliveries)
+                        @for (int x = 0; x < Model.Deliveries.Count; x++)
                         {
+                        var d = Model.Deliveries[x];
+                        bool outputTotalRows = x == Model.Deliveries.Count - 1;
+
                         @* DELIVERY START *@
                         <mj-table>
                             @for (int i = 0; i < d.OrderLines.Count; i++)
                             {
                             var ol = d.OrderLines[i];
                             bool outputHeaderRow = i == 0;
-                            bool outputTotalRows = i == d.OrderLines.Count - 1;
+
                             if (outputHeaderRow)
                             {
                             <tr style="background-color:@Skin.PrimaryColourHex;color:@primaryContrast;text-align:left;">
