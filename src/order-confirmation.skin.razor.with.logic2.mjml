@@ -79,14 +79,14 @@
                     <mj-column border="1px solid @lightBorderSubtle" padding="0 16px" css-class="table-shadow">
                         @for (int x = 0; x < Model.Deliveries.Count; x++)
                         {
-                        var d = Model.Deliveries[x];
+                        var d = Model.Deliveries.ElementAt(x);
                         bool outputTotalRows = x == Model.Deliveries.Count - 1;
 
                         @* DELIVERY START *@
                         <mj-table>
                             @for (int i = 0; i < d.OrderLines.Count; i++)
                             {
-                            var ol = d.OrderLines[i];
+                            var ol = d.OrderLines.ElementAt(i);
                             bool outputHeaderRow = i == 0;
 
                             if (outputHeaderRow)
@@ -141,7 +141,7 @@
                                     }
                                     else
                                     {
-                                    <span style="color:@lightBorderSubtle;text-decoration: line-through;">@ol.FullValue</span>
+                                    <span style="color:@darkBorderSubtle;text-decoration: line-through;">@ol.FullValue</span>
                                     <text> @ol.Value</text>
                                     <span style="display:block;font-size:10px;white-space:nowrap;"> @ol.AdjustmentValue</span>
                                     }
@@ -181,7 +181,7 @@
                                         Delivered by: @d.MethodOfDelivery to @d.TargetName.
                                         @if (d.FulfilledBy != null)
                                         {
-                                        <br /> Fulfilled by: @d.FulfilledBy.
+                                        <text><br /> Fulfilled by: @d.FulfilledBy.</text>
                                         }
                                     </div>
                                 </td>
@@ -192,7 +192,7 @@
                             @* ORDERFEES START *@
                             @for (int j = 0; j < Model.OrderFees.Count; j++)
                             {
-                            var cf = Model.OrderFees[j];
+                            var cf = Model.OrderFees.ElementAt(j);
                             bool isFirst = j == 0;
                             bool isLast = j == Model.OrderFees.Count - 1;
 
@@ -212,7 +212,7 @@
                             @* ORDER DISCOUNTS START *@
                             @for (int j = 0; j < Model.OrderDiscounts.Count; j++)
                             {
-                            var cd = Model.OrderDiscounts[j];
+                            var cd = Model.OrderDiscounts.ElementAt(j);
                             bool isFirst = j == 0;
                             bool isLast = j == Model.OrderDiscounts.Count - 1;
 
@@ -265,7 +265,7 @@
                             @foreach (var p in Model.Payments)
                             {
                             @* MOP *@
-                            Paid by: <strong style="font-weight:@Skin.HeadingsFontWeight">@p.MethodOfPayment</strong>.
+                            <text>Paid by: <strong style="font-weight:@Skin.HeadingsFontWeight">@p.MethodOfPayment</strong>.</text>
                             @if (!string.IsNullOrEmpty(p.ReceiptDetail))
                             {
                             <small>@p.ReceiptDetail</small>
