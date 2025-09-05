@@ -86,20 +86,23 @@
                         var perProductDetail = Model.PerProductDetails.SingleOrDefault(x => x.Id == d.OrderLines.First().ProductId);
 
                         @* DELIVERY START *@
+                        @foreach(var olsByProduct in d.OrderLines.GroupBy(x => new { x.ProductId, x.ProductName, x.HasDate, x.Date }))
+                        {
+
                         <mj-table>
-                            @for (int i = 0; i < d.OrderLines.Count; i++)
+                            @for (int i = 0; i < olsByProduct.Count(); i++)
                             {
-                            var ol = d.OrderLines.ElementAt(i);
+                            var ol = olsByProduct.ElementAt(i);
                             bool outputHeaderRow = i == 0;
 
                             if (outputHeaderRow)
                             {
                             <tr style="background-color:@Skin.PrimaryColourHex;color:@primaryContrast;text-align:left;">
                                 <th style="padding: 12px;line-height:1.2" colspan="3">
-                                    <h3 style="font-weight:@Skin.HeadingsFontWeight;margin:0;font-size:16px">@ol.Description</h3>
-                                    @if (ol.HasDate)
+                                    <h3 style="font-weight:@Skin.HeadingsFontWeight;margin:0;font-size:16px">@olsByProduct.Key.ProductName</h3>
+                                    @if (olsByProduct.Key.HasDate)
                                     {
-                                    <p style="font-weight:@Skin.BaseFontWeight;margin:0;font-size:12px">@ol.Date</p>
+                                    <p style="font-weight:@Skin.BaseFontWeight;margin:0;font-size:12px">@olsByProduct.Key.Date</p>
                                     }
                                 </th>
                             </tr>
@@ -111,10 +114,11 @@
                                     @for (int j = 0; j < ol.InventoryLabels.Count; j++)
                                     {
                                     var l = ol.InventoryLabels[j];
-                                    @: %=notification_inventorylabel_@l.Type.ToLower()=% @l.Value
+                                    @* Space is always eaten up and disappears when lands in Apple Mail inbox! *@
+                                    @: <span style="display:inline-block">%=notification_inventorylabel_@l.Type.ToLower()=%</span> &#160; <span style="display:inline-block">@l.Value</span>
                                     @if (j < ol.InventoryLabels.Count - 1)
                                     {
-                                    <span>|</span>
+                                    <span style="display:inline-block">|</span>
                                     }
                                     }
                                 </td>
@@ -146,6 +150,7 @@
                             }
                         </mj-table>
 
+
                         @if(perProductDetail != null)
                         {
                         <mj-table css-class="info-box" font-size="12px" padding="12px 12px 12px 8px">
@@ -161,6 +166,8 @@
                             </tr>
                         </mj-table>
                         }
+                        }
+
                         @if(outputTotalRows)
                         {
                         <mj-table>
