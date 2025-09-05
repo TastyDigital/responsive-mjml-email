@@ -77,10 +77,13 @@
 
                 <mj-section padding="0">
                     <mj-column border="1px solid @lightBorderSubtle" padding="0 16px" css-class="table-shadow">
+
+
                         @for (int x = 0; x < Model.Deliveries.Count; x++)
                         {
                         var d = Model.Deliveries.ElementAt(x);
                         bool outputTotalRows = x == Model.Deliveries.Count - 1;
+                        var perProductDetail = Model.PerProductDetails.SingleOrDefault(x => x.Id == d.OrderLines.First().ProductId);
 
                         @* DELIVERY START *@
                         <mj-table>
@@ -108,7 +111,7 @@
                                     @for (int j = 0; j < ol.InventoryLabels.Count; j++)
                                     {
                                     var l = ol.InventoryLabels[j];
-                                    @: %=notification_inventorylabel_@l.Type.ToLower()=%@l.Value
+                                    @: %=notification_inventorylabel_@l.Type.ToLower()=% @l.Value
                                     @if (j < ol.InventoryLabels.Count - 1)
                                     {
                                     <span>|</span>
@@ -124,7 +127,7 @@
                                         <span class="assignment-badge" style="font-weight:@Skin.BaseFontWeight;border-radius:@Skin.BorderRadius;font-size:9px;background-color:@ctaBgSubtle;padding:2px 7px;">@ol.AttendeeName</span>
                                         }
                                     </strong>
-                                    Ian Greaves Lower
+                                    @ol.InventoryLabels[0].Value
                                 </td>
 
                                 <td style="padding:12px 6px 0;font-size:16px;line-height:1.2;text-align:right;vertical-align:top;">
@@ -134,38 +137,30 @@
                                     }
                                     else
                                     {
-                                    if (ol.IsFullPrice)
-                                    {
-                                    <text>@ol.Value</text>
-                                    <span style="display:block;font-size:10px;white-space:nowrap;"> @ol.AdjustmentValue</span>
-                                    }
-                                    else
-                                    {
-                                    <span style="color:@darkBorderSubtle;text-decoration: line-through;">@ol.FullValue</span>
                                     <text> @ol.Value</text>
                                     <span style="display:block;font-size:10px;white-space:nowrap;"> @ol.AdjustmentValue</span>
-                                    }
                                     }
                                 </td>
                             </tr>
                             @* ORDERLINE END *@
                             }
                         </mj-table>
+
+                        @if(perProductDetail != null)
+                        {
                         <mj-table css-class="info-box" font-size="12px" padding="12px 12px 12px 8px">
                             <tr>
-                                <td style="padding:2px 8px 0 0;vertical-align: top;">
+                                <td style="padding:2px 8px 0 0;vertical-align:top;width:16px;">
                                     @await AssetImgAsync("info_icon_slot", 32, 32, new { padding="0", alt="Info", width="16", height="16", style=$"display:block;background-color:{Skin.TextColourHex};width:16px;height:16px;margin-top:-3px" })
                                 </td>
-                                <td style="vertical-align: top;">
+                                <td style="vertical-align:top;text-align:left;">
                                     <div style="line-height: 1.333;font-weight:@Skin.BaseFontWeight">
-                                        Thank you for purchasing a Marine FC season ticket for the 2025/26 season.
-                                        Marine FC season tickets are only valid for National League North home league games.
-                                        All supporters must adhere to the ground regulations of Marine FC which can be found on
-                                        <a href="https://www.marinefc.com/" target="_blank">www.marinefc.com</a>
+                                        @perProductDetail.PostPurchaseDescription
                                     </div>
                                 </td>
                             </tr>
                         </mj-table>
+                        }
                         @if(outputTotalRows)
                         {
                         <mj-table>
