@@ -115,7 +115,7 @@
                                     {
                                     var l = ol.InventoryLabels[j];
                                     @* Space is always eaten up and disappears when lands in Apple Mail inbox! *@
-                                    @: <span style="display:inline-block">%=notification_inventorylabel_@l.Type.ToLower()=%</span> &#160; <span style="display:inline-block">@l.Value</span>
+                                    @: <span style="display:inline-block">%=notification_inventorylabel_@l.Type.ToLower()=% @l.Value</span>
                                     @if (j < ol.InventoryLabels.Count - 1)
                                     {
                                     <span style="display:inline-block">|</span>
@@ -128,7 +128,7 @@
                                         @ol.PriceType
                                         @if (ol.ShowAttendee)
                                         {
-                                        <span class="assignment-badge" style="font-weight:@Skin.BaseFontWeight;border-radius:@Skin.BorderRadius;font-size:9px;background-color:@ctaBgSubtle;padding:2px 7px;">@ol.AttendeeName</span>
+                                        <span class="assignment-badge" style="font-weight:@Skin.BaseFontWeight;border-radius:@Skin.BorderRadius;font-size:9px;background-color:@ctaBgSubtle;padding:2px 7px;">@ol.AttendeeName | @ol.AttendeeCode</span>
                                         }
                                     </strong>
                                     @ol.InventoryLabels[0].Value
