@@ -1,4 +1,4 @@
-@inherits NotificationView<ActivateAccountModel>
+@inherits NotificationView<DispatchDeliveryToAttendeeModel>
     @{
     var (Common, Local) = HtmlLocalizerFactory.GetLocalizers("notification-activate");
     string ctaBgSubtle = "#f8f9fa";
@@ -9,13 +9,13 @@
     }
     <mjml>
         <mj-head>
-            <mj-title>Kaizen Ticketing Activate Account</mj-title>
-            <mj-preview>Activate your new account</mj-preview>
+            <mj-title>Kaizen Ticketing Dispatch to Attendee</mj-title>
+            <mj-preview>@Model.PurchasingCustomer.Name %=notification_dispatch_to_attendee_openingparagraph=% @Model.TicketCount ticket(s) %=notification_dispatch_to_attendee_openingparagraph2=%</mj-preview>
             <mj-font name="@Skin.FontFamilySansSerif" href="https://fonts.googleapis.com/css2?family=@Skin.FontFamilySansSerif:ital,wght@@0,@Skin.BaseFontWeight;0,@Skin.ButtonFontWeight;0,@Skin.HeadingsFontWeight;1,@Skin.BaseFontWeight&amp;display=swap" />
             <mj-breakpoint width="460px" />
             <mj-attributes>
                 <mj-text color="@Skin.TextColourHex" line-height="1.4" />
-                <mj-button background-color="@Skin.SecondaryColourHex" border-radius="@Skin.BorderRadius" font-size="20px" font-weight="@Skin.ButtonFontWeight" width="100%" />
+                <mj-button background-color="transparent" font-size="20px" font-weight="@Skin.ButtonFontWeight"  />
                 <mj-section padding="16px 10%" />
                 <mj-social-element padding="4px 8px" background-color="@Skin.TextColourHex" />
                 <mj-kz-social-element padding="4px 8px" />
@@ -26,10 +26,6 @@
                     .body-wrap {
                         padding: 24px 0;
                     }
-                }
-                .box-shadow a {
-                    display:block !important;
-                    box-shadow: 0 3px 5px 0 rgba(0 0 0 / 33%);
                 }
                 a {
                     color: @Skin.PrimaryColourHex;
@@ -60,26 +56,55 @@
                                   font-size="32px"
                                   font-weight="@Skin.HeadingsFontWeight"
                         >
-                            %=notification_greeting=%
-                            @Model.Recipient.Name,
+                            %=notification_greeting=% @Model.Recipient.Name
                         </mj-text>
 
                         <mj-text align="center"
                                  font-size="16px"
                                  font-weight="@Skin.ButtonFontWeight"
                         >
-                            %=notification_activateaccount_openingparagraph=%
+                            @Model.PurchasingCustomer.Name %=notification_dispatch_to_attendee_openingparagraph=% @Model.TicketCount ticket(s) %=notification_dispatch_to_attendee_openingparagraph2=%
+                        </mj-text>
+
+                        @foreach(var tl in Model.TicketLinks)
+                        {
+                            switch(tl.ContentType)
+                            {
+                                case "application/vnd.google.wallet":
+                                    <mj-button padding-top="16px" padding="0 0" width="auto" href="@tl.LinkUrl">
+                                        @await AssetImgAsync("google_wallet_link", 566, 100, new { padding="0", alt="Add to Google Wallet", width="283px", height="50px" })
+                                    </mj-button>
+                                    break;
+
+                                default:
+                                    throw new NotSupportedException();
+                            }
+                        }
+
+                        <mj-text align="center"
+                                 font-size="18px"
+                                 font-weight="@Skin.ButtonFontWeight"
+                                 padding="13px 0"
+                        >
+                            @*TODO: No paragraph formatting expected *@
+                            %=notification_dispatch_to_attendee_mainheader=%
                         </mj-text>
                         <mj-text align="center"
-                                 font-size="16px"
+                                 font-size="14px"
                                  font-weight="@Skin.BaseFontWeight"
+                                 padding="0"
                         >
-                            %=notification_activateaccount_maincontent2(block)=%
-
+                            @*TODO: No paragraph formatting expected *@
+                            %=notification_dispatch_to_attendee_maincontent=%
                         </mj-text>
-                        <mj-button width="100%" padding-top="44px" href="@Model.ActivationUrl" css-class="box-shadow">
-                            @await AssetImgAsync("test_user_slot", 42, 42, new { width="21", height="21", padding="0", alt="", style="display:inline-block;margin-right:4px;vertical-align:middle;" })
-                            <span style="display: inline-block;vertical-align: middle">%=notification_activateaccount_button=%</span></mj-button>
+                        <mj-text align="center"
+                                 font-size="14px"
+                                 font-weight="@Skin.BaseFontWeight"
+                                 padding="0"
+                        >
+                            @*TODO: This one expects to contain paragraphs *@
+                            %=notification_dispatch_to_attendee_maincontent2(block)=%
+                        </mj-text>
                     </mj-column>
                 </mj-section>
 
