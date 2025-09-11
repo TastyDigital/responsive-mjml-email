@@ -1,4 +1,4 @@
-@inherits NotificationView<ActivateAccountModel>
+@inherits NotificationView<ReportNotificationModel>
     @{
     var (Common, Local) = HtmlLocalizerFactory.GetLocalizers("notification-activate");
     string ctaBgSubtle = "#f8f9fa";
@@ -9,8 +9,8 @@
     }
     <mjml>
         <mj-head>
-            <mj-title>Kaizen Ticketing Activate Account</mj-title>
-            <mj-preview>Activate your new account</mj-preview>
+            <mj-title>Kaizen Ticketing Reports</mj-title>
+            <mj-preview>%=notification_reportnotification_openingparagraph=%</mj-preview>
             <mj-font name="@Skin.FontFamilySansSerif" href="https://fonts.googleapis.com/css2?family=@Skin.FontFamilySansSerif:ital,wght@@0,@Skin.BaseFontWeight;0,@Skin.ButtonFontWeight;0,@Skin.HeadingsFontWeight;1,@Skin.BaseFontWeight&amp;display=swap" />
             <mj-breakpoint width="460px" />
             <mj-attributes>
@@ -60,26 +60,28 @@
                                   font-size="32px"
                                   font-weight="@Skin.HeadingsFontWeight"
                         >
-                            %=notification_greeting=%
-                            @Model.Recipient.Name
+                            %=notification_greeting=% @Model.Recipient.Name
                         </mj-text>
 
                         <mj-text align="center"
                                  font-size="16px"
                                  font-weight="@Skin.ButtonFontWeight"
                         >
-                            %=notification_activateaccount_openingparagraph=%
+                            %=notification_reportnotification_mainheader=%
                         </mj-text>
                         <mj-text align="center"
                                  font-size="16px"
                                  font-weight="@Skin.BaseFontWeight"
+                                 padding-bottom="32px"
                         >
-                            %=notification_activateaccount_maincontent2(block)=%
-
+                            %=notification_reportnotification_maincontent=%
                         </mj-text>
-                        <mj-button width="100%" padding-top="44px" href="@Model.ActivationUrl" css-class="box-shadow">
-                            @await AssetImgAsync("test_user_slot", 42, 42, new { width="21", height="21", padding="0", alt="", style="display:inline-block;margin-right:4px;vertical-align:middle;" })
-                            <span style="display: inline-block;vertical-align: middle">%=notification_activateaccount_button=%</span></mj-button>
+                        @foreach (var rep in Model.Reports)
+                        {
+                        <mj-button width="100%" padding-top="8px" href="@rep.url" css-class="box-shadow">
+                            %=notification_reportnotification_@rep.reportType=% @rep.reportType
+                        </mj-button>
+                        }
                     </mj-column>
                 </mj-section>
 

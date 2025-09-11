@@ -1,4 +1,4 @@
-@inherits NotificationView<ActivateAccountModel>
+@inherits NotificationView<UpgradeRelationshipModel>
     @{
     var (Common, Local) = HtmlLocalizerFactory.GetLocalizers("notification-activate");
     string ctaBgSubtle = "#f8f9fa";
@@ -10,7 +10,7 @@
     <mjml>
         <mj-head>
             <mj-title>Kaizen Ticketing Activate Account</mj-title>
-            <mj-preview>Activate your new account</mj-preview>
+            <mj-preview>@Model.FullName %=notification_upgraderelationship_openingparagraph=%</mj-preview>
             <mj-font name="@Skin.FontFamilySansSerif" href="https://fonts.googleapis.com/css2?family=@Skin.FontFamilySansSerif:ital,wght@@0,@Skin.BaseFontWeight;0,@Skin.ButtonFontWeight;0,@Skin.HeadingsFontWeight;1,@Skin.BaseFontWeight&amp;display=swap" />
             <mj-breakpoint width="460px" />
             <mj-attributes>
@@ -47,13 +47,7 @@
                         @await MjAssetImgAsync("club_crest_slot", 188, 188, new { padding="0", alt="Hinckley LRFC", width="94px" })
                     </mj-column>
                 </mj-section>
-                @* optional club photo starts *@
-                <mj-section padding="0">
-                    <mj-column>
-                        @await MjAssetImgAsync("hero_slot", 1320, 784, new { padding="0", alt="Hero Photo", width="660px" })
-                    </mj-column>
-                </mj-section>
-                @* optional club photo ends *@
+
                 <mj-section>
                     <mj-column>
                         <mj-text  align="center"
@@ -68,18 +62,26 @@
                                  font-size="16px"
                                  font-weight="@Skin.ButtonFontWeight"
                         >
-                            %=notification_activateaccount_openingparagraph=%
+                            @Model.FullName %=notification_upgraderelationship_openingparagraph=%
                         </mj-text>
                         <mj-text align="center"
                                  font-size="16px"
                                  font-weight="@Skin.BaseFontWeight"
                         >
-                            %=notification_activateaccount_maincontent2(block)=%
-
+                            <h3>What does this mean?</h3>
+                            <p>@Model.FullName will be able to do the following on your behalf:</p>
+                            <p style="font-weight:@Skin.ButtonFontWeight"><span style="margin-right:8px;color:@Skin.SecondaryColourHex;">&#x25cf;</span> Buy tickets and assign them to your account<br />
+                                <span style="margin-right:8px;color:@Skin.SecondaryColourHex;">&#x25cf;</span> Convert your reservations</p>
                         </mj-text>
-                        <mj-button width="100%" padding-top="44px" href="@Model.ActivationUrl" css-class="box-shadow">
-                            @await AssetImgAsync("test_user_slot", 42, 42, new { width="21", height="21", padding="0", alt="", style="display:inline-block;margin-right:4px;vertical-align:middle;" })
-                            <span style="display: inline-block;vertical-align: middle">%=notification_activateaccount_button=%</span></mj-button>
+                        <mj-text align="center"
+                                 font-size="16px"
+                                 font-weight="@Skin.BaseFontWeight"
+                        >
+                            %=notification_upgraderelationship_maincontent=%
+                        </mj-text>
+                        <mj-button width="100%" padding-top="36px" href="@Model.UpgradeUrl" css-class="box-shadow">
+                            %=notification_upgraderelationship_button=%
+                        </mj-button>
                     </mj-column>
                 </mj-section>
 
