@@ -1,0 +1,132 @@
+@inherits NotificationView<ForwardingModel>
+    @{
+    var (Common, Local) = HtmlLocalizerFactory.GetLocalizers("notification-activate");
+    string ctaBgSubtle = "#f8f9fa";
+    string lightBorderSubtle = "#e9ecef";
+    string darkBorderSubtle = "#adb5bd";
+    string fontFamilyBase = $"{@Skin.FontFamilySansSerif}, Arial, sans-serif";
+    string channelBaseUrl= "https://mansfieldtownfc.ktckts.com";
+    }
+    <mjml>
+        <mj-head>
+            <mj-title>Kaizen Ticketing Forwarded Tickets</mj-title>
+            <mj-preview>@Model.Poster.Name has forwarded @Model.OrderLinesCount ticket(s) to you.</mj-preview>
+            <mj-font name="@Skin.FontFamilySansSerif" href="https://fonts.googleapis.com/css2?family=@Skin.FontFamilySansSerif:ital,wght@@0,@Skin.BaseFontWeight;0,@Skin.ButtonFontWeight;0,@Skin.HeadingsFontWeight;1,@Skin.BaseFontWeight&amp;display=swap" />
+            <mj-breakpoint width="460px" />
+            <mj-attributes>
+                <mj-text color="@Skin.TextColourHex" line-height="1.4" />
+                <mj-button background-color="@Skin.SecondaryColourHex" border-radius="@Skin.BorderRadius" font-size="20px" font-weight="@Skin.ButtonFontWeight" width="100%" />
+                <mj-section padding="16px 10%" />
+                <mj-social-element padding="4px 8px" background-color="@Skin.TextColourHex" />
+                <mj-kz-social-element padding="4px 8px" />
+                <mj-all font-family="@fontFamilyBase" />
+            </mj-attributes>
+            <mj-style>
+                @@media only screen and (min-width:660px) {
+                    .body-wrap {
+                        padding: 24px 0;
+                    }
+                }
+                .box-shadow a {
+                    display:block !important;
+                    box-shadow: 0 3px 5px 0 rgba(0 0 0 / 33%);
+                }
+                a {
+                    color: @Skin.PrimaryColourHex;
+                    text-decoration: underline;
+                }
+                a:hover {
+                    text-decoration: none;
+                }
+            </mj-style>
+        </mj-head>
+        <mj-body width="660px" background-color="@Skin.BackgroundColourHex" css-class="body-wrap">
+            <mj-wrapper border="4px solid @Skin.PrimaryColourHex" padding="0" background-color="#ffffff">
+                <mj-section padding-top="42px">
+                    <mj-column>
+                        @await MjAssetImgAsync("club_crest_slot", 188, 188, new { padding="0", alt="Hinckley LRFC", width="94px" })
+                    </mj-column>
+                </mj-section>
+                @* optional club photo starts *@
+                <mj-section padding="0">
+                    <mj-column>
+                        @await MjAssetImgAsync("hero_slot", 1320, 784, new { padding="0", alt="Hero Photo", width="660px" })
+                    </mj-column>
+                </mj-section>
+                @* optional club photo ends *@
+                <mj-section>
+                    <mj-column>
+                        <mj-text  align="center"
+                                  font-size="32px"
+                                  font-weight="@Skin.HeadingsFontWeight"
+                        >
+                            %=notification_greeting=%
+                            @Model.Recipient.Name
+                        </mj-text>
+
+                        <mj-text align="center"
+                                 font-size="16px"
+                                 font-weight="@Skin.ButtonFontWeight"
+                        >
+                            @Model.Poster.Name has forwarded @Model.OrderLinesCount ticket(s) to you.
+                        </mj-text>
+                        <mj-text align="center"
+                                 font-size="16px"
+                                 font-weight="@Skin.BaseFontWeight"
+                        >
+                            %=notification_forwarding_maincontent=%
+                        </mj-text>
+                        <mj-button width="100%" padding-top="44px" href="@Model.ForwardedTicketsUrl" css-class="box-shadow">
+                            %=notification_forwarding_button=%
+                        </mj-button>
+                    </mj-column>
+                </mj-section>
+
+                <!-- Icons -->
+                <mj-section padding="16px 0">
+                    <mj-column>
+                        <mj-social icon-size="40px" mode="horizontal" border-radius="0" container-background-color="#FFFFFF" >
+                            <!-- we can customise the icons with src attribute -->
+                            @await MjAssetSocialElementAsync("facebook-noshare", "https://facebook.com/", "fb_icon_slot", 80, 80, new { alt="Facebook", padding="4px 8px", backgroundColor=Skin.TextColourHex })
+                            @await MjAssetSocialElementAsync("x-noshare", "https://x.com/", "x_icon_slot", 80, 80, new { alt="X", padding="4px 8px", backgroundColor=Skin.TextColourHex })
+                            @await MjAssetSocialElementAsync("instagram", "https://instagram.com/", "insta_icon_slot", 80, 80, new { alt="Instagram", padding="4px 8px", backgroundColor=Skin.TextColourHex })
+                            @await MjAssetSocialElementAsync("youtube", "https://youtube.com/", "yt_icon_slot", 80, 80, new { alt="YouTube", padding="4px 8px", backgroundColor=Skin.TextColourHex })
+                        </mj-social>
+                    </mj-column>
+                </mj-section>
+
+                <mj-section padding="16px 0">
+                    <mj-column>
+                        <mj-text align="center" font-size="18px" font-weight="@Skin.BaseFontWeight">
+                            <ul style="list-style:none;padding:0">
+                                <li style="margin:8px 0;"><a href="#" style="color:@Skin.TextColourHex; text-decoration: none;">
+                                    @await AssetImgAsync("phone_icon_slot", 42, 42, new { padding="0", alt="Phone", width="21px", height="21", style=$"display:inline-block;margin-right:4px;vertical-align:middle;background-color:{Skin.TextColourHex};width:21px;height:21px;" }) +44(0)123 123 1234</a>
+                                </li>
+                                <li style="margin:8px 0;"><a href="#" style="color:@Skin.TextColourHex; text-decoration: none;">
+                                    @await AssetImgAsync("email_icon_slot", 42, 42, new { padding="0", alt="Email", width="21px", height="21", style=$"display:inline-block;margin-right:4px;vertical-align:middle;background-color:{Skin.TextColourHex};width:21px;height:21px;" }) test@demo.com</a>
+                                </li>
+                            </ul>
+                        </mj-text>
+                    </mj-column>
+                </mj-section>
+                <mj-section padding="8px 5%">
+                    <mj-column vertical-align="middle">
+                        @await MjAssetImgAsync("partner_logo_slot_1", 224, null, new { padding="8px", alt="Hel", width="112px" })
+                    </mj-column>
+                    <mj-column vertical-align="middle">
+                        @await MjAssetImgAsync("partner_logo_slot_2", 224, null, new { padding="8px", alt="Castore", width="112px" })
+                    </mj-column>
+                    <mj-column vertical-align="middle">
+                        @await MjAssetImgAsync("partner_logo_slot_3", 224, null, new { padding="8px", alt="OCL Solicitors", width="112px" })
+                    </mj-column>
+                </mj-section>
+                <mj-section padding="16px 0">
+                    <mj-column>
+                        <mj-text align="center" font-size="16px" font-weight="400">
+                            <a href="@channelBaseUrl/termsandconditions" target="_blank" style="color:@Skin.TextColourHex; text-decoration: none;white-space: nowrap;">Terms &amp; Conditions</a> <span style="padding: 0 8px">|</span> <a href="@channelBaseUrl/privacypolicy" target="_blank" style="color:@Skin.TextColourHex;text-decoration:none;white-space: nowrap;">Privacy Policy</a>
+                        </mj-text>
+                    </mj-column>
+                </mj-section>
+            </mj-wrapper>
+        </mj-body>
+    </mjml>
